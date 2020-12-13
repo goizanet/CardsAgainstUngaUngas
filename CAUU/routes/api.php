@@ -15,18 +15,20 @@ use App\Http\Controllers\Auth\AuthController;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
 Route::get('/test', function (Request $request) {
-
     return "patata";
-
 });
 
-Route::group(['prefix'=>'auth'], function () {
+//Rutas user logueado
+Route::group(['prefix'=>'auth', 'middleware' => 'auth:api'], function () {
+    Route::get('logout', [AuthController::class, 'logout']);
 
+    Route::get('user', [AuthController::class, 'user']);
+});
+
+//Rutas sin user
+Route::group(['prefix'=>'auth'], function () {
     Route::post('register', [AuthController::class, 'register']);
 
+    Route::post('login', [AuthController::class, 'login']);
 });
