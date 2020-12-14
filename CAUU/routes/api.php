@@ -20,15 +20,14 @@ Route::get('/test', function (Request $request) {
 });
 
 //Rutas user logueado
-Route::group(['prefix'=>'auth', 'middleware' => 'auth:api'], function () {
-    Route::get('logout', [AuthController::class, 'logout']);
-
-    Route::get('user', [AuthController::class, 'user']);
-});
-
-//Rutas sin user
 Route::group(['prefix'=>'auth'], function () {
+    //Rutas logueado
     Route::post('register', [AuthController::class, 'register']);
-
     Route::post('login', [AuthController::class, 'login']);
+
+    //Rutas sin user
+    Route::group(['middleware' => 'auth:api'], function () {
+        Route::get('user', [AuthController::class, 'user']);
+        Route::get('logout', [AuthController::class, 'logout']);
+    });
 });
