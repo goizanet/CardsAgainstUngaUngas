@@ -13,7 +13,7 @@ class TablasDatos extends Migration
      */
     public function up()
     {
-        if (!Schema::hasTable('ambitos')) 
+        if (!Schema::hasTable('ambitos'))
         {
             Schema::create('ambitos', function (Blueprint $table) {
                 $table->id();
@@ -22,7 +22,7 @@ class TablasDatos extends Migration
             });
         }
 
-        if (!Schema::hasTable('continentes')) 
+        if (!Schema::hasTable('continentes'))
         {
             Schema::create('continentes', function (Blueprint $table) {
                 $table->id();
@@ -31,7 +31,7 @@ class TablasDatos extends Migration
             });
         }
 
-        if (!Schema::hasTable('mujeres')) 
+        if (!Schema::hasTable('mujeres'))
         {
             Schema::create('mujeres', function (Blueprint $table) {
                 $table->id();
@@ -43,10 +43,10 @@ class TablasDatos extends Migration
                 $table->string('zona_geografica');
                 //
                 $table->unsignedBigInteger('ambito_id');
-                $table->foreign('ambito_id')->references('id')->on('ambitos');
+                $table->foreign('ambito_id')->references('id')->on('ambitos')->onDelete('cascade');
                 //
                 $table->unsignedBigInteger('continente_id');
-                $table->foreign('continente_id')->references('id')->on('continentes');
+                $table->foreign('continente_id')->references('id')->on('continentes')->onDelete('cascade');
                 //
                 $table->date('fecha_nacimiento');
                 $table->date('fecha_muerte');
@@ -55,7 +55,7 @@ class TablasDatos extends Migration
             });
         }
 
-        if (!Schema::hasTable('colecciones')) 
+        if (!Schema::hasTable('colecciones'))
         {
             Schema::create('colecciones', function (Blueprint $table) {
                 $table->id();
@@ -63,59 +63,59 @@ class TablasDatos extends Migration
             });
         }
 
-        if (!Schema::hasTable('jugadores')) 
+        if (!Schema::hasTable('jugadores'))
         {
             Schema::create('jugadores', function (Blueprint $table) {
                 $table->id();
                 //
                 $table->unsignedBigInteger('usuario_id');
-                $table->foreign('usuario_id')->references('id')->on('users');
+                $table->foreign('usuario_id')->references('id')->on('users')->onDelete('cascade');
                 //
                 $table->unsignedBigInteger('coleccion_id');
-                $table->foreign('coleccion_id')->references('id')->on('colecciones');
+                $table->foreign('coleccion_id')->references('id')->on('colecciones')->onDelete('cascade');
                 //
                 $table->timestamps();
             });
         }
 
-        if (!Schema::hasTable('datos')) 
+        if (!Schema::hasTable('datos'))
         {
             Schema::create('datos', function (Blueprint $table) {
                 $table->id();
                 //
                 $table->unsignedBigInteger('mujer_id');
-                $table->foreign('mujer_id')->references('id')->on('mujeres');
+                $table->foreign('mujer_id')->references('id')->on('mujeres')->onDelete('cascade');
                 //
                 $table->string("dato");
                 $table->timestamps();
             });
         }
 
-        if (!Schema::hasTable('coleccion_mujer')) 
+        if (!Schema::hasTable('coleccion_mujer'))
         {
             Schema::create('coleccion_mujer', function (Blueprint $table) {
                 $table->id();
                 //
                 $table->unsignedBigInteger('coleccion_id');
-                $table->foreign('coleccion_id')->references('id')->on('coleccion');
+                $table->foreign('coleccion_id')->references('id')->on('colecciones')->onDelete('cascade');
                 //
                 $table->unsignedBigInteger('mujer_id');
-                $table->foreign('mujer_id')->references('id')->on('mujeres');
+                $table->foreign('mujer_id')->references('id')->on('mujeres')->onDelete('cascade');
                 //
                 $table->timestamps();
             });
         }
 
-        if (!Schema::hasTable('coleccion_mujer_datos')) 
+        if (!Schema::hasTable('coleccion_mujer_datos'))
         {
             Schema::create('coleccion_mujer_datos', function (Blueprint $table) {
                 $table->id();
                 //
                 $table->unsignedBigInteger('coleccion_mujer_id');
-                $table->foreign('coleccion_mujer_id')->references('id')->on('coleccion_mujer');
+                $table->foreign('coleccion_mujer_id')->references('id')->on('coleccion_mujer')->onDelete('cascade');
                 //
                 $table->unsignedBigInteger('dato_id');
-                $table->foreign('dato_id')->references('id')->on('datos');
+                $table->foreign('dato_id')->references('id')->on('datos')->onDelete('cascade');
                 //
                 $table->timestamps();
             });
@@ -129,6 +129,16 @@ class TablasDatos extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('coleccion_mujer_datos');
+        Schema::dropIfExists('coleccion_mujer');
+        Schema::dropIfExists('partida_mujer');
+        Schema::dropIfExists('partida_dato');
+        Schema::dropIfExists('partidas');
+        Schema::dropIfExists('jugadores');
+        Schema::dropIfExists('datos');
+        Schema::dropIfExists('colecciones');
+        Schema::dropIfExists('mujeres');
+        Schema::dropIfExists('continentes');
+        Schema::dropIfExists('ambitos');
     }
 }
