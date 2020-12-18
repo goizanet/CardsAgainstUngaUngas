@@ -30,7 +30,7 @@ class CreateUsersTable extends Migration
                 $table->timestamp('email_verified_at')->nullable();
                 $table->string('password');
                 //
-                $table->unsignedBigInteger('rol_id');
+                $table->unsignedBigInteger('rol_id')->default(2);
                 $table->foreign('rol_id')->references('id')->on('roles')->onDelete('cascade');
                 $table->rememberToken();
                 //

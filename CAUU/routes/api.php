@@ -3,7 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
-
+use App\Http\Controllers\AdminController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -19,15 +19,23 @@ Route::get('/test', function (Request $request) {
     return "patata";
 });
 
-//Rutas user logueado
 Route::group(['prefix'=>'auth'], function () {
-    //Rutas logueado
+    //Rutas sin user
     Route::post('register', [AuthController::class, 'register']);
     Route::post('login', [AuthController::class, 'login']);
 
-    //Rutas sin user
+    //Rutas logueado
     Route::group(['middleware' => 'auth:api'], function () {
         Route::get('user', [AuthController::class, 'user']);
         Route::get('logout', [AuthController::class, 'logout']);
+    });
+
+
+});
+
+Route::group(['prefix'=>'admin'], function () {
+    Route::group(['middleware' => ['auth:api','admin']], function ()
+    {
+        Route::get('test', [AdminController::class, 'test']);
     });
 });
