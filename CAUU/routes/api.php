@@ -15,7 +15,7 @@ use App\Http\Controllers\AdminController;
 |
 */
 
-Route::get('/test', function (Request $request) {
+Route::get('/test', function () {
     return "patata";
 });
 
@@ -37,5 +37,17 @@ Route::group(['prefix'=>'admin'], function () {
     Route::group(['middleware' => ['auth:api','admin']], function ()
     {
         Route::get('test', [AdminController::class, 'test']);
+
+        Route::get('listMujeres', [AdminController::class, 'listMujeres']);
+        Route::post('addMujer', [AdminController::class, 'addMujer']);
+        Route::delete('deleteMujer', [AdminController::class, 'deleteMujer']);
+
+        Route::get('listDatosMujer', [AdminController::class, 'listDatosMujer']);
+        Route::post('addDatoMujer', [AdminController::class, 'addDatoMujer']);
+        Route::delete('deleteDatoMujer', [AdminController::class, 'deleteDatoMujer']);
+
+        Route::get('listUsersAdmin', [AdminController::class, 'listUsersAdmin']);
+        Route::post('addUserAdmin', [AdminController::class, 'addUserAdmin']);
+        Route::delete('deleteUserAdmin', [AdminController::class, 'deleteUserAdmin']);
     });
 });

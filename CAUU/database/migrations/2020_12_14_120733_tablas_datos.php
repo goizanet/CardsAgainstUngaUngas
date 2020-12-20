@@ -36,10 +36,10 @@ class TablasDatos extends Migration
             Schema::create('mujeres', function (Blueprint $table) {
                 $table->id();
                 $table->string('nombre');
-                $table->string('apellido');
+                $table->string('apellido')->nullable();
                 $table->longText('lore_es');
-                $table->longText('lore_eus');
-                $table->longText('lore_en');
+                $table->longText('lore_eus')->nullable();
+                $table->longText('lore_en')->nullable();
                 $table->string('zona_geografica');
                 //
                 $table->unsignedBigInteger('ambito_id');
@@ -49,8 +49,8 @@ class TablasDatos extends Migration
                 $table->foreign('continente_id')->references('id')->on('continentes')->onDelete('cascade');
                 //
                 $table->date('fecha_nacimiento');
-                $table->date('fecha_muerte');
-                $table->binary('foto');
+                $table->date('fecha_muerte')->nullable();
+                $table->binary('foto')->nullable();
                 $table->timestamps();
             });
         }

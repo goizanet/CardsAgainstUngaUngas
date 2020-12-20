@@ -7,7 +7,6 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
 use Illuminate\Database\Eloquent\Model;
-use App\Rol;
 
 class User extends Authenticatable
 {
@@ -42,5 +41,9 @@ class User extends Authenticatable
 
     public function rol() {
         return $this->belongsTo(Rol::class);
+    }
+
+    public static function getAdmins () {
+        return self::where('rol_id',1)->get();
     }
 }
