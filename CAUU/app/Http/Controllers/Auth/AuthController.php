@@ -7,7 +7,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Auth;
-use Psy\Util\Json;
+use Illuminate\Support\Facades\Log;
 
 class AuthController extends Controller
 {
@@ -34,6 +34,7 @@ class AuthController extends Controller
 
     public function login (Request $request)
     {
+        Log::debug($request);
         $request->validate([
             'email' => 'required|string|email',
             'password' => 'required|string'
