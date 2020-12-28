@@ -15,16 +15,16 @@ use App\Http\Controllers\Web\Admin\AdminController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('login');
 });
 
 Route::group(['prefix'=>'admin'], function () {
-    //Login
-
+    Route::get('login', [AdminController::class, 'getLogin'])->name('login');
+    Route::post('login', [AdminController::class, 'doLogin'])->name('doLogin');
 
     Route::group(['middleware' => ['auth','admin']], function ()
     {
-        Route::get('test', [AdminController::class, 'test']);
+        Route::get('home', [AdminController::class, 'getHome'])->name('home');
 
         Route::get('listMujeres', [AdminController::class, 'listMujeres']);
         Route::post('addMujer', [AdminController::class, 'addMujer']);
@@ -37,5 +37,7 @@ Route::group(['prefix'=>'admin'], function () {
         Route::get('listUsersAdmin', [AdminController::class, 'listUsersAdmin']);
         Route::post('addUserAdmin', [AdminController::class, 'addUserAdmin']);
         Route::delete('deleteUserAdmin', [AdminController::class, 'deleteUserAdmin']);
+
+        Route::get('logout', [AdminController::class, 'doLogout'])->name('logout');
     });
 });

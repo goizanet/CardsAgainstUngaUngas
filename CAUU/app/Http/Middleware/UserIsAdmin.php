@@ -15,10 +15,8 @@ class UserIsAdmin
      */
     public function handle($request, Closure $next)
     {
-        if ($request->user()->rol->nombre != 'admin') {
-            return response()->json([
-                'message' => 'No tienes permisos'
-            ], 403);
+        if (!$request->user()->isAdmin()) {
+            return redirect()->route('login');
         }
 
         return $next($request);

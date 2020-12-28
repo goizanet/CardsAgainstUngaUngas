@@ -43,6 +43,10 @@ class User extends Authenticatable
         return $this->belongsTo(Rol::class);
     }
 
+    public function isAdmin() {
+        return $this->rol->nombre == 'admin';
+    }
+
     public static function getAdmins () {
         return self::where('rol_id',1)->get();
     }

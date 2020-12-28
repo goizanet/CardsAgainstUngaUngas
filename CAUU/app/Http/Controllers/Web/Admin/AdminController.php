@@ -10,9 +10,44 @@ use App\Dato;
 use App\Mujer;
 use App\User;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
+    public function getLogin(Request $request)
+    {
+        if ($request->user()){
+           return redirect()->route('home');
+        }
+
+        return view('Admin.login');
+    }
+
+    public function doLogin(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|string|email',
+            'password' => 'required|string'
+        ]);
+
+        $credentials = request(['email', 'password']);
+
+        if (!Auth::attempt($credentials)) {
+            return redirect()->back()->withInput();
+        }
+
+        return redirect()->route('home');
+    }
+
+    public function doLogout() {
+        Auth::logout();
+        return redirect()->route('login');
+    }
+
+    public function getHome () {
+        return view('Admin.Home');
+    }
+
     public function test(Request $request) {
         return 'Eres admin';
     }
