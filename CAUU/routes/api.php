@@ -1,9 +1,7 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Auth\AuthController;
-use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Api\Auth\AuthController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -28,26 +26,5 @@ Route::group(['prefix'=>'auth'], function () {
     Route::group(['middleware' => 'auth:api'], function () {
         Route::get('user', [AuthController::class, 'user']);
         Route::get('logout', [AuthController::class, 'logout']);
-    });
-
-
-});
-
-Route::group(['prefix'=>'admin'], function () {
-    Route::group(['middleware' => ['auth:api','admin']], function ()
-    {
-        Route::get('test', [AdminController::class, 'test']);
-
-        Route::get('listMujeres', [AdminController::class, 'listMujeres']);
-        Route::post('addMujer', [AdminController::class, 'addMujer']);
-        Route::delete('deleteMujer', [AdminController::class, 'deleteMujer']);
-
-        Route::get('listDatosMujer', [AdminController::class, 'listDatosMujer']);
-        Route::post('addDatoMujer', [AdminController::class, 'addDatoMujer']);
-        Route::delete('deleteDatoMujer', [AdminController::class, 'deleteDatoMujer']);
-
-        Route::get('listUsersAdmin', [AdminController::class, 'listUsersAdmin']);
-        Route::post('addUserAdmin', [AdminController::class, 'addUserAdmin']);
-        Route::delete('deleteUserAdmin', [AdminController::class, 'deleteUserAdmin']);
     });
 });
