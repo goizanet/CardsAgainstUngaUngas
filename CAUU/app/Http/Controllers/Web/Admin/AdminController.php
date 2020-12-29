@@ -163,9 +163,11 @@ class AdminController extends Controller
 
     public function listUsersAdmin (Request $request)
     {
-        return response()->json([
-            'users' => User::getAdmins()
-        ]);
+        $data = [
+            'users' => User::getAdmins(),
+        ];
+
+        return view('Admin.Usuarios', $data);
     }
 
     public function addUserAdmin (Request $request)
@@ -189,13 +191,30 @@ class AdminController extends Controller
         ], 201);
     }
 
+    public function editUserAdmin (Request $request)
+    {
+        $request->validate([
+            'email' => ['required', 'string', 'email'],
+            'password' => ['required',  'string'],
+        ]);
+
+        $user = User::where('email', $request->email)->firstOrFail();
+
+        $user->password = bcrypt($request->password);
+        $user->save();
+
+        return response()->json([
+            'message'=> 'Usuario administrador actualizado!',
+        ], 201);
+    }
+
     public function deleteUserAdmin (Request $request)
     {
         $request->validate([
-            'user_id' => ['required', 'numeric'],
+            'email' => ['required', 'string', 'email'],
         ]);
 
-        $user = User::findOrFail($request->user_id);
+        $user = User::where('email', $request->email)->firstOrFail();
         $user->delete();
 
         return response()->json([

@@ -34,8 +34,9 @@ Route::group(['prefix'=>'admin'], function () {
         Route::post('addDatoMujer', [AdminController::class, 'addDatoMujer']);
         Route::delete('deleteDatoMujer', [AdminController::class, 'deleteDatoMujer']);
 
-        Route::get('listUsersAdmin', [AdminController::class, 'listUsersAdmin']);
+        Route::get('UsersAdmin', [AdminController::class, 'listUsersAdmin'])->name('listUsersAdmin');
         Route::post('addUserAdmin', [AdminController::class, 'addUserAdmin']);
+        Route::put('editUserAdmin', [AdminController::class, 'editUserAdmin']);
         Route::delete('deleteUserAdmin', [AdminController::class, 'deleteUserAdmin']);
 
         Route::get('logout', [AdminController::class, 'doLogout'])->name('logout');
