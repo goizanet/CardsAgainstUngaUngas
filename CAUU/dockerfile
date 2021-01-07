@@ -39,6 +39,6 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 # so when we execute CLI commands, all the host file's ownership remains intact
 # otherwise command from inside container will create root-owned files and directories
 ARG uid
-RUN useradd -G www-data,root -u $uid -d /home/user user
+RUN useradd -G www-data,root -u 1000 -d /home/user user
 RUN mkdir -p /home/user/.composer && \
-    chown -R user:user /home/user 
+    chown -R user:user /home/user

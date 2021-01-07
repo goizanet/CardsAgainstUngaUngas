@@ -123,6 +123,8 @@ return [
 
     'cipher' => 'AES-256-CBC',
 
+    //The only supported ciphers are AES-128-CBC and AES-256-CBC with the correct key lengths.
+
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers
