@@ -221,4 +221,61 @@ class AdminController extends Controller
             'deleted'=> 1,
         ]);
     }
+
+    public function listFields (Request $request)
+    {
+        $data = [
+            'fields' => User::getFields(),
+        ];
+
+        return view('Admin.Ambitos', $data);
+    }
+
+    public function addFields (Request $request)
+    {
+        $request->validate([
+            'name' => ['required', 'string']
+        ]);
+
+        $user = new Admin;
+
+        $user->name = $request->name;
+        $user->save();
+
+        return response()->json([
+            'message'=> 'Nuevo ambito creado!'
+        ], 201);
+    }
+
+    public function editFields (Request $request)
+    {
+        $request->validate([
+            'name' => ['required', 'string']
+        ]);
+
+        $ambito = Ambito::where('name', $request->name)->firstOrFail();
+
+        $ambito->name = bcrypt($request->name);
+        $ambito->save();
+
+        return response()->json([
+            'message'=> 'Ambito actualizado!',
+        ], 201);
+    }
+
+    public function deleteFields (Request $request)
+    {
+        $request->validate([
+            'nombre' => ['required', 'string']
+        ]);
+
+        $ambito = Ambito::where('nombre', $request->name)->firstOrFail();
+        $ambito->delete();
+
+        return response()->json([
+            'deleted'=> 1,
+        ]);
+    }
+
+
 }

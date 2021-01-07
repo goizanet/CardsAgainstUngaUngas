@@ -39,6 +39,12 @@ Route::group(['prefix'=>'admin'], function () {
         Route::put('editUserAdmin', [AdminController::class, 'editUserAdmin']);
         Route::delete('deleteUserAdmin', [AdminController::class, 'deleteUserAdmin']);
 
+        Route::get('listAmbitos', [AdminController::class, 'listFields'])->name('listAmbitos');
+        Route::post('addAmbito', [AdminController::class, 'addFields']);
+        Route::put('editAmbito', [AdminController::class, 'editFields']);
+        Route::delete('deleteAmbito', [AdminController::class, 'deleteFields']);
+
+
         Route::get('logout', [AdminController::class, 'doLogout'])->name('logout');
     });
 });

@@ -44,13 +44,16 @@
       <excludeFolder url="file://$MODULE_DIR$/CAUU/vendor/myclabs/deep-copy" />
       <excludeFolder url="file://$MODULE_DIR$/CAUU/vendor/nesbot/carbon" />
       <excludeFolder url="file://$MODULE_DIR$/CAUU/vendor/nikic/php-parser" />
+      <excludeFolder url="file://$MODULE_DIR$/CAUU/vendor/nunomaduro/collision" />
       <excludeFolder url="file://$MODULE_DIR$/CAUU/vendor/nyholm/psr7" />
       <excludeFolder url="file://$MODULE_DIR$/CAUU/vendor/opis/closure" />
+      <excludeFolder url="file://$MODULE_DIR$/CAUU/vendor/paragonie/random_compat" />
       <excludeFolder url="file://$MODULE_DIR$/CAUU/vendor/phar-io/manifest" />
       <excludeFolder url="file://$MODULE_DIR$/CAUU/vendor/phar-io/version" />
       <excludeFolder url="file://$MODULE_DIR$/CAUU/vendor/php-http/message-factory" />
       <excludeFolder url="file://$MODULE_DIR$/CAUU/vendor/phpdocumentor/reflection-common" />
       <excludeFolder url="file://$MODULE_DIR$/CAUU/vendor/phpdocumentor/reflection-docblock" />
+      <excludeFolder url="file://$MODULE_DIR$/CAUU/vendor/phpdocumentor/type-resolver" />
       <excludeFolder url="file://$MODULE_DIR$/CAUU/vendor/phpoption/phpoption" />
       <excludeFolder url="file://$MODULE_DIR$/CAUU/vendor/phpseclib/phpseclib" />
       <excludeFolder url="file://$MODULE_DIR$/CAUU/vendor/phpspec/prophecy" />
@@ -118,9 +121,6 @@
       <excludeFolder url="file://$MODULE_DIR$/CAUU/vendor/vlucas/phpdotenv" />
       <excludeFolder url="file://$MODULE_DIR$/CAUU/vendor/voku/portable-ascii" />
       <excludeFolder url="file://$MODULE_DIR$/CAUU/vendor/webmozart/assert" />
-      <excludeFolder url="file://$MODULE_DIR$/CAUU/vendor/paragonie/random_compat" />
-      <excludeFolder url="file://$MODULE_DIR$/CAUU/vendor/nunomaduro/collision" />
-      <excludeFolder url="file://$MODULE_DIR$/CAUU/vendor/phpdocumentor/type-resolver" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
