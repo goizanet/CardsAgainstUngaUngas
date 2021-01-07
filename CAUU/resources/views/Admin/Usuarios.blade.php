@@ -76,7 +76,7 @@
     <div class="col-12 text-center my-2">
         <button class="mt-3 btn btn-success"  data-toggle="modal" data-target="#addUserModal">Añadir</button>
     </div>
-    <div class="row">
+    <div class="row users">
         @foreach($users as $user)
             <div class="my-4 px-2 card col-12 col-sm-6 col-lg-4">
                 <div class="card-body">
@@ -140,6 +140,9 @@
                 data: {"_token": "{{ csrf_token() }}" ,name: nombre, email: email, password: password1},
                 dataType: "JSON",
                 success: function (response) {
+                    //Crear card item dinamicamente
+                    $('.users').append()
+
                     $.confirm({
                         title: 'Usuario creado',
                         type: 'green',
