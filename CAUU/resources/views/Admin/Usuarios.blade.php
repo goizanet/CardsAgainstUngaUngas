@@ -140,9 +140,6 @@
                 data: {"_token": "{{ csrf_token() }}" ,name: nombre, email: email, password: password1},
                 dataType: "JSON",
                 success: function (response) {
-                    //Crear card item dinamicamente
-                    $('.users').append()
-
                     $.confirm({
                         title: 'Usuario creado',
                         type: 'green',
@@ -151,6 +148,16 @@
                         buttons: {
                             ok: function () {
                                 $('#addUserModal').modal('hide')
+                                //Crear card item dinamicamente
+                                $('.users').append(
+                                    `<div class="my-4 px-2 card col-12 col-sm-6 col-lg-4">
+                                        <div class="card-body">
+                                            <h4 class="card-title">${nombre}</h4>
+                                            <h6 class="card-subtitle">${email}</h6>
+                                            <button class="mt-3 btn btn-primary"  data-toggle="modal" data-target="#editAdminModal">Editar</button>
+                                            <button class="mt-3 btn btn-danger delete">Eliminar</button>
+                                        </div>
+                                    </div>`).fadeIn('slow');
                             }
                         }
                     });
@@ -196,7 +203,7 @@
             })
         })
 
-        $('.delete').on('click', function () {
+        $('.users').on('click', '.delete', function () {
             let button = $(this)
             $.confirm({
                 title: 'Eliminar usuario administrador ?',
@@ -222,6 +229,8 @@
                                         autoClose: 'ok|2000',
                                         buttons: {
                                             ok: function () {
+                                                //Eliminar card dinamicamente
+                                                $(button).parent().parent().fadeOut();
                                             }
                                         }
                                     });

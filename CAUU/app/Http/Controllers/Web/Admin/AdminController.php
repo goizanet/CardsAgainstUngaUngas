@@ -214,6 +214,12 @@ class AdminController extends Controller
             'email' => ['required', 'string', 'email'],
         ]);
 
+        if (count(User::getAdmins()) <= 0) {
+            return response()->json([
+                'Error' => 'No se puede eliminar el ultimo administrador'
+            ], 422);
+        }
+
         $user = User::where('email', $request->email)->firstOrFail();
         $user->delete();
 
