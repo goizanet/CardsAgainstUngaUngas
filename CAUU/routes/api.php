@@ -30,7 +30,7 @@ Route::group(['prefix'=>'auth'], function () {
         Route::get('logout', [AuthController::class, 'logout']);
 
         Route::group(["prefix" => 'data'], function () {
-            Route::get('logout', [DataInfoController::class, 'listFields']);
+            Route::get('Ambitos', [DataInfoController::class, 'listFields']);
         });
     });
 });
