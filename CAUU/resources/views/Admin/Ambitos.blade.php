@@ -2,35 +2,20 @@
 
 @section('primary-content')
     <!-- Modal ADD-->
-    <div class="modal fade" id="addUserModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="addUserModalLabel" aria-hidden="true">
+    <div class="modal fade" id="addFieldModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="addFieldModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="addUserModalLabel">Añadir administrador</h5>
+                    <h5 class="modal-title" id="addFieldModalLabel">Añadir ambito</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form id="addUserAdminForm">
+                    <form id="addFieldAdminForm">
                         <div class="form-group">
                             <label for="nombre">Nombre</label>
                             <input type="text" class="form-control" id="nombre" aria-describedby="nombre">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" class="form-control" id="emailAdd" aria-describedby="emailHelp">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="password1">Password</label>
-                            <input type="password" class="form-control" id="passwordAdd1">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="password2">Password</label>
-                            <input type="password" class="form-control" id="passwordAdd2">
                         </div>
                     </form>
                 </div>
@@ -43,28 +28,24 @@
     </div>
 
     <!-- Modal EDIT-->
-    <div class="modal fade" id="editAdminModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="editAdminModalLabel" aria-hidden="true">
+    <div class="modal fade" id="editFieldModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="editFieldLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="editAdminModalLabel">Editar administrador</h5>
+                    <h5 class="modal-title" id="editFieldLabel">Editar ambito</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
+
                 <div class="modal-body">
-                    <h6 id="nombre" class="my-2 text-center"></h6>
-
                     <div class="form-group">
-                        <label for="password1">Password</label>
-                        <input type="password" class="form-control" id="passwordEdit1" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="password2">Password</label>
-                        <input type="password" class="form-control" id="passwordEdit2" required>
+                        <label for="nombreEdit">Nombre</label>
+                        <input type="text" class="form-control" id="nombreEdit" required>
+                        <input type="hidden" name="idEdit" id="idEdit">
                     </div>
                 </div>
+
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button type="button" class="btn btn-primary" id="edit">Guardar</button>
@@ -74,16 +55,16 @@
     </div>
 
     <div class="col-12 text-center my-2">
-        <button class="mt-3 btn btn-success"  data-toggle="modal" data-target="#addUserModal">Añadir</button>
+        <button class="mt-3 btn btn-success"  data-toggle="modal" data-target="#addFieldModal">Añadir</button>
     </div>
-    <div class="row users">
-        @foreach($users as $user)
+    <div class="row ambitos">
+        @foreach($fields as $field)
             <div class="my-4 px-2 card col-12 col-sm-6 col-lg-4">
                 <div class="card-body">
-                    <h4 class="card-title">{{$user->name}}</h4>
-                    <h6 class="card-subtitle">{{$user->email}}</h6>
-                    <button class="mt-3 btn btn-primary"  data-toggle="modal" data-target="#editAdminModal">Editar</button>
+                    <h4 class="card-title">{{$field->nombre}}</h4>
+                    <button class="mt-3 btn btn-primary"  data-toggle="modal" data-target="#editFieldModal">Editar</button>
                     <button class="mt-3 btn btn-danger delete">Eliminar</button>
+                    <input type="hidden" value="{{$field->id}}" name="id">
                 </div>
             </div>
         @endforeach
@@ -92,31 +73,27 @@
 
 @section('custom-js')
     <script>
-        $('#editAdminModal').on('show.bs.modal', function (event) {
+        $('#editFieldModal').on('show.bs.modal', function (event) {
             var button = $(event.relatedTarget)
             var modal = $(this)
-            modal.find('#nombre').text(button.siblings('h6').text())
+
+            modal.find('#nombreEdit').val(button.siblings('h4').text())
+            modal.find('#idEdit').val(button.siblings('input[name="id"]').val())
         })
 
-        $('#editAdminModal').on('hidden.bs.modal', function (e) {
-            $('#passwordEdit1').val('');
-            $('#passwordEdit2').val('');
+        $('#editFieldModal').on('hidden.bs.modal', function (e) {
+            $('#nombreEdit').val('');
+            $('#idEdit').val('');
         })
 
-        $('#addUserModal').on('hidden.bs.modal', function (e) {
+        $('#addFieldModal').on('hidden.bs.modal', function (e) {
             $('#nombre').val('');
-            $('#emailAdd').val('')
-            $('#passwordAdd1').val('')
-            $('#passwordAdd2').val('')
         })
 
         $('#crear').on('click', function (event) {
             const nombre = $('#nombre').val();
-            const email = $('#emailAdd').val();
-            const password1 = $('#passwordAdd1').val();
-            const password2 = $('#passwordAdd2').val();
 
-            if (nombre.trim() === '' || email.trim() === '') {
+            if (nombre.trim() === '') {
                 $.confirm({
                     title: 'ERROR',
                     content: 'Uno o mas campos estan vacios o no conciden con el formato',
@@ -130,34 +107,33 @@
 
                 return false;
             }
-            else if (!validatePassword(password1, password2)) {
-                return false;
-            }
 
             $.ajax({
                 type: "POST",
-                url: "/admin/addUserAdmin",
-                data: {"_token": "{{ csrf_token() }}" ,name: nombre, email: email, password: password1},
+                url: "/admin/addAmbito",
+                data: {"_token": "{{ csrf_token() }}" , nombre: nombre},
                 dataType: "JSON",
                 success: function (response) {
                     $.confirm({
-                        title: 'Usuario creado',
+                        title: 'Ambito creado',
                         type: 'green',
                         content: 'Se añadio con exito!',
                         autoClose: 'ok|1000',
                         buttons: {
                             ok: function () {
-                                $('#addUserModal').modal('hide')
-                                //Crear card item dinamicamente
-                                $('.users').append(
+                                $('#addFieldModal').modal('hide')
+
+                                //Add card dinamyc
+                                $('.ambitos').append(
                                     `<div class="my-4 px-2 card col-12 col-sm-6 col-lg-4">
                                         <div class="card-body">
                                             <h4 class="card-title">${nombre}</h4>
-                                            <h6 class="card-subtitle">${email}</h6>
-                                            <button class="mt-3 btn btn-primary"  data-toggle="modal" data-target="#editAdminModal">Editar</button>
+                                            <button class="mt-3 btn btn-primary"  data-toggle="modal" data-target="#editFieldModal">Editar</button>
                                             <button class="mt-3 btn btn-danger delete">Eliminar</button>
+                                            <input type="hidden" value="${response.id}" name="id">
                                         </div>
-                                    </div>`).fadeIn('slow');
+                                    </div>`
+                                ).fadeIn();
                             }
                         }
                     });
@@ -170,20 +146,17 @@
         })
 
         $('#edit').on('click', function (event) {
-            let password1 = $('#passwordEdit1').val();
-            let password2 = $('#passwordEdit2').val();
-            let email = $('#editAdminModal').find('#nombre').text()
-
-            if (!validatePassword(password1, password2)) {
-                return false
-            }
+            let nombre = $('#nombreEdit').val();
+            let id  = $("#idEdit").val();
 
             $.ajax({
                 type: "PUT",
-                url: "/admin/editUserAdmin",
-                data: {"_token": "{{ csrf_token() }}", email: email, password: password1},
+                url: "/admin/editAmbito",
+                data: {"_token": "{{ csrf_token() }}", nombre : nombre, id:id},
                 dataType: "JSON",
                 success: function (response) {
+                    $(`input[value="${id}"]`).siblings('h4').text(nombre);
+
                     $.confirm({
                         title: 'Actualizado',
                         type: 'green',
@@ -191,7 +164,7 @@
                         autoClose: 'ok|1000',
                         buttons: {
                             ok: function () {
-                                $('#editAdminModal').modal('hide')
+                                $('#editFieldModal').modal('hide')
                             }
                         }
                     });
@@ -203,11 +176,11 @@
             })
         })
 
-        $('.users').on('click', '.delete', function () {
+        $('.ambitos').on('click', '.delete', function () {
             let button = $(this)
             $.confirm({
-                title: 'Eliminar usuario administrador ?',
-                content: 'Esta seguro de eliminar un usuario administrador',
+                title: 'Eliminar ambito ?',
+                content: 'Esta seguro de eliminar este ambito ?',
                 type: 'red',
                 typeAnimated: true,
                 buttons: {
@@ -215,13 +188,16 @@
                         text: 'Si',
                         btnClass: 'btn-red',
                         action: function () {
-                            const email = button.siblings('h6').text()
+                            const id = $(button).siblings('input').val()
+
                             $.ajax({
                                 type: "DELETE",
-                                url: "/admin/deleteUserAdmin",
-                                data: {"_token": "{{ csrf_token() }}", email: email},
+                                url: "/admin/deleteAmbito",
+                                data: {"_token": "{{ csrf_token() }}", id: id},
                                 dataType: "JSON",
                                 success: function (response) {
+                                    $(button).parent().parent().fadeOut();
+
                                     $.confirm({
                                         title: 'Usuario eliminado',
                                         type: 'green',
@@ -229,8 +205,6 @@
                                         autoClose: 'ok|1000',
                                         buttons: {
                                             ok: function () {
-                                                //Eliminar card dinamicamente
-                                                $(button).parent().parent().fadeOut();
                                             }
                                         }
                                     });
@@ -247,27 +221,6 @@
                 }
             });
         })
-
-        function validatePassword (password1, password2) {
-            let mediumRegex = new RegExp("^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})")
-            let validation = true;
-
-            if (password1 !== password2 || !mediumRegex.test(password1)) {
-                validation = false;
-                $.confirm({
-                    title: 'ERROR',
-                    content: 'Las contraseñas no coinciden o no cumplen con el criterio.',
-                    type: 'red',
-                    typeAnimated: true,
-                    buttons: {
-                        close: function () {
-                        }
-                    }
-                });
-            }
-
-            return validation;
-        }
     </script>
 @endsection
 

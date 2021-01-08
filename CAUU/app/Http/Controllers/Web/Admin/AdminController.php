@@ -178,7 +178,7 @@ class AdminController extends Controller
             'password' => ['required',  'string'],
         ]);
 
-        $user = new User;
+        $user = new User();
 
         $user->name = $request->name;
         $user->email = $request->email;
@@ -214,8 +214,70 @@ class AdminController extends Controller
             'email' => ['required', 'string', 'email'],
         ]);
 
+        if (count(User::getAdmins()) <= 0) {
+            return response()->json([
+                'Error' => 'No se puede eliminar el ultimo administrador'
+            ], 422);
+        }
+
         $user = User::where('email', $request->email)->firstOrFail();
         $user->delete();
+
+        return response()->json([
+            'deleted'=> 1,
+        ]);
+    }
+
+    public function listFields (Request $request)
+    {
+        $data = [
+            'fields' => Ambito::all(),
+        ];
+        return view('Admin.Ambitos', $data);
+    }
+
+    public function addFields (Request $request)
+    {
+        $request->validate([
+            'nombre' => ['required', 'string'],
+        ]);
+
+        $ambito = new Ambito();
+
+        $ambito->nombre = $request->nombre;
+        $ambito->save();
+
+        return response()->json([
+            'message'=> 'Nuevo ambito creado!',
+            'id' => $ambito->id
+        ], 201);
+    }
+
+    public function editFields (Request $request)
+    {
+        $request->validate([
+            'nombre' => ['required', 'string'],
+            'id' => ['required', 'numeric']
+        ]);
+
+        $ambito = Ambito::where('id', $request->id)->firstOrFail();
+
+        $ambito->nombre = $request->nombre;
+        $ambito->save();
+
+        return response()->json([
+            'message'=> 'Ambito actualizado!',
+        ], 201);
+    }
+
+    public function deleteFields (Request $request)
+    {
+        $request->validate([
+            'id' => ['required', 'numeric']
+        ]);
+
+        $ambito = Ambito::where('id', $request->id)->firstOrFail();
+        $ambito->delete();
 
         return response()->json([
             'deleted'=> 1,
