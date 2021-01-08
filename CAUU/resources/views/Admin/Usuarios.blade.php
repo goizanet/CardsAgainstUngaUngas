@@ -144,7 +144,7 @@
                         title: 'Usuario creado',
                         type: 'green',
                         content: 'Se añadio con exito!',
-                        autoClose: 'ok|2000',
+                        autoClose: 'ok|1000',
                         buttons: {
                             ok: function () {
                                 $('#addUserModal').modal('hide')
@@ -188,7 +188,7 @@
                         title: 'Actualizado',
                         type: 'green',
                         content: 'Se actualizo con exito!',
-                        autoClose: 'ok|2000',
+                        autoClose: 'ok|1000',
                         buttons: {
                             ok: function () {
                                 $('#editAdminModal').modal('hide')
@@ -226,7 +226,7 @@
                                         title: 'Usuario eliminado',
                                         type: 'green',
                                         content: 'Se elimino con exito!',
-                                        autoClose: 'ok|2000',
+                                        autoClose: 'ok|1000',
                                         buttons: {
                                             ok: function () {
                                                 //Eliminar card dinamicamente

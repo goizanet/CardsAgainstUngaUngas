@@ -31,7 +31,7 @@
                     <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Ambitos</a>
+                    <a class="nav-link" href="/admin/listAmbitos">Ambitos</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/admin/UsersAdmin">Usuarios</a>

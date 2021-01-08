@@ -178,7 +178,7 @@ class AdminController extends Controller
             'password' => ['required',  'string'],
         ]);
 
-        $user = new User;
+        $user = new User();
 
         $user->name = $request->name;
         $user->email = $request->email;
@@ -231,37 +231,38 @@ class AdminController extends Controller
     public function listFields (Request $request)
     {
         $data = [
-            'fields' => User::getFields(),
+            'fields' => Ambito::all(),
         ];
-
         return view('Admin.Ambitos', $data);
     }
 
     public function addFields (Request $request)
     {
         $request->validate([
-            'name' => ['required', 'string']
+            'nombre' => ['required', 'string'],
         ]);
 
-        $user = new Admin;
+        $ambito = new Ambito();
 
-        $user->name = $request->name;
-        $user->save();
+        $ambito->nombre = $request->nombre;
+        $ambito->save();
 
         return response()->json([
-            'message'=> 'Nuevo ambito creado!'
+            'message'=> 'Nuevo ambito creado!',
+            'id' => $ambito->id
         ], 201);
     }
 
     public function editFields (Request $request)
     {
         $request->validate([
-            'name' => ['required', 'string']
+            'nombre' => ['required', 'string'],
+            'id' => ['required', 'numeric']
         ]);
 
-        $ambito = Ambito::where('name', $request->name)->firstOrFail();
+        $ambito = Ambito::where('id', $request->id)->firstOrFail();
 
-        $ambito->name = bcrypt($request->name);
+        $ambito->nombre = $request->nombre;
         $ambito->save();
 
         return response()->json([
@@ -272,16 +273,14 @@ class AdminController extends Controller
     public function deleteFields (Request $request)
     {
         $request->validate([
-            'nombre' => ['required', 'string']
+            'id' => ['required', 'numeric']
         ]);
 
-        $ambito = Ambito::where('nombre', $request->name)->firstOrFail();
+        $ambito = Ambito::where('id', $request->id)->firstOrFail();
         $ambito->delete();
 
         return response()->json([
             'deleted'=> 1,
         ]);
     }
-
-
 }
