@@ -15,10 +15,8 @@ class DataInfoController extends Controller
 {
     public function listFields (Request $request)
     {
-        $data = [
-            'fields' => Ambito::all(),
-        ];
-
-        return view('Admin.Ambitos', $data);
+        return response()->json(
+            ['ambitos' => Ambito::all()]
+        );
     }
 }
