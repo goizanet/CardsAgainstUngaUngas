@@ -76,7 +76,6 @@
       <path value="$PROJECT_DIR$/CAUU/vendor/nyholm/psr7" />
       <path value="$PROJECT_DIR$/CAUU/vendor/ramsey/collection" />
       <path value="$PROJECT_DIR$/CAUU/vendor/ramsey/uuid" />
-      <path value="$PROJECT_DIR$/CAUU/vendor/scrivo/highlight.php" />
       <path value="$PROJECT_DIR$/CAUU/vendor/vlucas/phpdotenv" />
       <path value="$PROJECT_DIR$/CAUU/vendor/dnoegel/php-xdg-base-dir" />
       <path value="$PROJECT_DIR$/CAUU/vendor/egulias/email-validator" />
@@ -95,7 +94,6 @@
       <path value="$PROJECT_DIR$/CAUU/vendor/phpunit/php-file-iterator" />
       <path value="$PROJECT_DIR$/CAUU/vendor/phpunit/php-text-template" />
       <path value="$PROJECT_DIR$/CAUU/vendor/phpunit/php-timer" />
-      <path value="$PROJECT_DIR$/CAUU/vendor/phpunit/php-token-stream" />
       <path value="$PROJECT_DIR$/CAUU/vendor/phpunit/phpunit" />
       <path value="$PROJECT_DIR$/CAUU/vendor/symfony/console" />
       <path value="$PROJECT_DIR$/CAUU/vendor/symfony/css-selector" />
@@ -117,6 +115,12 @@
       <path value="$PROJECT_DIR$/CAUU/vendor/paragonie/random_compat" />
       <path value="$PROJECT_DIR$/CAUU/vendor/nunomaduro/collision" />
       <path value="$PROJECT_DIR$/CAUU/vendor/phpdocumentor/type-resolver" />
+      <path value="$PROJECT_DIR$/CAUU/vendor/sebastian/code-unit" />
+      <path value="$PROJECT_DIR$/CAUU/vendor/sebastian/complexity" />
+      <path value="$PROJECT_DIR$/CAUU/vendor/sebastian/cli-parser" />
+      <path value="$PROJECT_DIR$/CAUU/vendor/sebastian/lines-of-code" />
+      <path value="$PROJECT_DIR$/CAUU/vendor/phpunit/php-invoker" />
+      <path value="$PROJECT_DIR$/CAUU/vendor/lcobucci/clock" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.2" />
