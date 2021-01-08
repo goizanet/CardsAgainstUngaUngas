@@ -269,7 +269,7 @@
                                 },
                                 error: function (error) {
                                     $(button).find(".loading").remove();
-                                    $(button).text('Guardar');
+                                    $(button).text('Eliminar');
                                     console.log(error);
                                     errorGenAlert();
                                 }

@@ -233,6 +233,7 @@ class AdminController extends Controller
         $data = [
             'fields' => Ambito::all(),
         ];
+
         return view('Admin.Ambitos', $data);
     }
 
