@@ -26,11 +26,11 @@ Route::group(['prefix'=>'admin'], function () {
     {
         Route::get('home', [AdminController::class, 'getHome'])->name('home');
 
-        Route::get('listMujeres', [AdminController::class, 'listMujeres']);
+        Route::get('listMujeres', [AdminController::class, 'listMujeres'])->name('listMujeres');
         Route::post('addMujer', [AdminController::class, 'addMujer']);
         Route::delete('deleteMujer', [AdminController::class, 'deleteMujer']);
 
-        Route::get('listDatosMujer', [AdminController::class, 'listDatosMujer'])->name('listDatosMujeres');
+        Route::get('listDatosMujer', [AdminController::class, 'listDatosMujer']);
         Route::post('addDatoMujer', [AdminController::class, 'addDatoMujer']);
         Route::delete('deleteDatoMujer', [AdminController::class, 'deleteDatoMujer']);
 
