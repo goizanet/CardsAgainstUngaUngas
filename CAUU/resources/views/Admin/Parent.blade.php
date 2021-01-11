@@ -31,7 +31,7 @@
                     <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
                 </li>
                 <li>
-                    <a class="nav-link" href="{{route('li')}}">Mujeres</a>
+                    <a class="nav-link" href="/admin/listMujeres">Mujeres</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/admin/listAmbitos">Ambitos</a>
