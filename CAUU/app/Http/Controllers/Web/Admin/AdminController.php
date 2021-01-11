@@ -54,9 +54,11 @@ class AdminController extends Controller
 
     public function listMujeres (Request $request)
     {
-        return response()->json([
-            'mujeres' => Mujer::all()
-        ]);
+        $data = [
+            'women' => Mujer::all()
+        ];
+
+        return view('Admin.Mujeres', $data);
     }
 
     public function addMujer (Request $request)
@@ -233,6 +235,7 @@ class AdminController extends Controller
         $data = [
             'fields' => Ambito::all(),
         ];
+
         return view('Admin.Ambitos', $data);
     }
 

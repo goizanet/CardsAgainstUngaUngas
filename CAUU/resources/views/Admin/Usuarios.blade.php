@@ -134,6 +134,13 @@
                 return false;
             }
 
+            let btn = $(this);
+            $(btn).text('');
+            $(btn).append(
+                `<span class='loading spinner-border spinner-border-sm' role='status' aria-hidden='true'></span>
+                <span class='loading sr-only'>Loading...</span>`
+            )
+
             $.ajax({
                 type: "POST",
                 url: "/admin/addUserAdmin",
@@ -147,6 +154,9 @@
                         autoClose: 'ok|1000',
                         buttons: {
                             ok: function () {
+                                $(btn).find(".loading").remove();
+                                $(btn).text('Guardar');
+
                                 $('#addUserModal').modal('hide')
                                 //Crear card item dinamicamente
                                 $('.users').append(
@@ -163,6 +173,8 @@
                     });
                 },
                 error: function (error) {
+                    $(btn).find(".loading").remove();
+                    $(btn).text('Guardar');
                     console.log(error);
                     errorGenAlert();
                 }
@@ -178,12 +190,22 @@
                 return false
             }
 
+            let btn = $(this);
+            $(btn).text('');
+            $(btn).append(
+                `<span class='loading spinner-border spinner-border-sm' role='status' aria-hidden='true'></span>
+                <span class='loading sr-only'>Loading...</span>`
+            )
+
             $.ajax({
                 type: "PUT",
                 url: "/admin/editUserAdmin",
                 data: {"_token": "{{ csrf_token() }}", email: email, password: password1},
                 dataType: "JSON",
                 success: function (response) {
+                    $(btn).find(".loading").remove();
+                    $(btn).text('Guardar');
+
                     $.confirm({
                         title: 'Actualizado',
                         type: 'green',
@@ -197,6 +219,9 @@
                     });
                 },
                 error: function (error) {
+                    $(btn).find(".loading").remove();
+                    $(btn).text('Guardar');
+
                     console.log(error);
                     errorGenAlert();
                 }
@@ -205,6 +230,7 @@
 
         $('.users').on('click', '.delete', function () {
             let button = $(this)
+
             $.confirm({
                 title: 'Eliminar usuario administrador ?',
                 content: 'Esta seguro de eliminar un usuario administrador',
@@ -215,7 +241,13 @@
                         text: 'Si',
                         btnClass: 'btn-red',
                         action: function () {
+                            $(button).text('');
+                            $(button).append(
+                                `<span class='loading spinner-border spinner-border-sm' role='status' aria-hidden='true'></span>
+                                 <span class='loading sr-only'>Loading...</span>`
+                            )
                             const email = button.siblings('h6').text()
+
                             $.ajax({
                                 type: "DELETE",
                                 url: "/admin/deleteUserAdmin",
@@ -236,6 +268,8 @@
                                     });
                                 },
                                 error: function (error) {
+                                    $(button).find(".loading").remove();
+                                    $(button).text('Eliminar');
                                     console.log(error);
                                     errorGenAlert();
                                 }

@@ -92,6 +92,7 @@
 
         $('#crear').on('click', function (event) {
             const nombre = $('#nombre').val();
+            let btn = $(this);
 
             if (nombre.trim() === '') {
                 $.confirm({
@@ -108,12 +109,21 @@
                 return false;
             }
 
+            $(btn).text('');
+            $(btn).append(
+                `<span class='loading spinner-border spinner-border-sm' role='status' aria-hidden='true'></span>
+                <span class='loading sr-only'>Loading...</span>`
+            )
+
             $.ajax({
                 type: "POST",
                 url: "/admin/addAmbito",
                 data: {"_token": "{{ csrf_token() }}" , nombre: nombre},
                 dataType: "JSON",
                 success: function (response) {
+                    $(btn).find(".loading").remove();
+                    $(btn).text('Guardar');
+
                     $.confirm({
                         title: 'Ambito creado',
                         type: 'green',
@@ -139,6 +149,8 @@
                     });
                 },
                 error: function (error) {
+                    $(btn).find(".loading").remove();
+                    $(btn).text('Guardar');
                     console.log(error);
                     errorGenAlert();
                 }
@@ -148,6 +160,13 @@
         $('#edit').on('click', function (event) {
             let nombre = $('#nombreEdit').val();
             let id  = $("#idEdit").val();
+            let btn = $(this);
+
+            $(btn).text('');
+            $(btn).append(
+                `<span class='loading spinner-border spinner-border-sm' role='status' aria-hidden='true'></span>
+                <span class='loading sr-only'>Loading...</span>`
+            )
 
             $.ajax({
                 type: "PUT",
@@ -155,6 +174,8 @@
                 data: {"_token": "{{ csrf_token() }}", nombre : nombre, id:id},
                 dataType: "JSON",
                 success: function (response) {
+                    $(btn).find(".loading").remove();
+                    $(btn).text('Guardar');
                     $(`input[value="${id}"]`).siblings('h4').text(nombre);
 
                     $.confirm({
@@ -170,6 +191,8 @@
                     });
                 },
                 error: function (error) {
+                    $(btn).find(".loading").remove();
+                    $(btn).text('Guardar');
                     console.log(error);
                     errorGenAlert();
                 }
@@ -178,6 +201,7 @@
 
         $('.ambitos').on('click', '.delete', function () {
             let button = $(this)
+
             $.confirm({
                 title: 'Eliminar ambito ?',
                 content: 'Esta seguro de eliminar este ambito ?',
@@ -188,6 +212,12 @@
                         text: 'Si',
                         btnClass: 'btn-red',
                         action: function () {
+                            $(button).text('');
+                            $(button).append(
+                                `<span class='loading spinner-border spinner-border-sm' role='status' aria-hidden='true'></span>
+                                 <span class='loading sr-only'>Loading...</span>`
+                            )
+
                             const id = $(button).siblings('input').val()
 
                             $.ajax({
@@ -210,6 +240,8 @@
                                     });
                                 },
                                 error: function (error) {
+                                    $(button).find(".loading").remove();
+                                    $(button).text('Eliminar');
                                     console.log(error);
                                     errorGenAlert();
                                 }

@@ -26,7 +26,7 @@ Route::group(['prefix'=>'admin'], function () {
     {
         Route::get('home', [AdminController::class, 'getHome'])->name('home');
 
-        Route::get('listMujeres', [AdminController::class, 'listMujeres']);
+        Route::get('listMujeres', [AdminController::class, 'listMujeres'])->name('listMujeres');
         Route::post('addMujer', [AdminController::class, 'addMujer']);
         Route::delete('deleteMujer', [AdminController::class, 'deleteMujer']);
 
