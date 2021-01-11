@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\Auth\AuthController;
+use App\Http\Controllers\Api\Data\DataInfoController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -26,5 +28,9 @@ Route::group(['prefix'=>'auth'], function () {
     Route::group(['middleware' => 'auth:api'], function () {
         Route::get('user', [AuthController::class, 'user']);
         Route::get('logout', [AuthController::class, 'logout']);
+
+        Route::group(["prefix" => 'data'], function () {
+            Route::get('Ambitos', [DataInfoController::class, 'listFields']);
+        });
     });
 });

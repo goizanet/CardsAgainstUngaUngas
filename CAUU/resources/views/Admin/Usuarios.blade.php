@@ -76,7 +76,7 @@
     <div class="col-12 text-center my-2">
         <button class="mt-3 btn btn-success"  data-toggle="modal" data-target="#addUserModal">Añadir</button>
     </div>
-    <div class="row">
+    <div class="row users">
         @foreach($users as $user)
             <div class="my-4 px-2 card col-12 col-sm-6 col-lg-4">
                 <div class="card-body">
@@ -134,6 +134,13 @@
                 return false;
             }
 
+            let btn = $(this);
+            $(btn).text('');
+            $(btn).append(
+                `<span class='loading spinner-border spinner-border-sm' role='status' aria-hidden='true'></span>
+                <span class='loading sr-only'>Loading...</span>`
+            )
+
             $.ajax({
                 type: "POST",
                 url: "/admin/addUserAdmin",
@@ -144,15 +151,30 @@
                         title: 'Usuario creado',
                         type: 'green',
                         content: 'Se añadio con exito!',
-                        autoClose: 'ok|2000',
+                        autoClose: 'ok|1000',
                         buttons: {
                             ok: function () {
+                                $(btn).find(".loading").remove();
+                                $(btn).text('Guardar');
+
                                 $('#addUserModal').modal('hide')
+                                //Crear card item dinamicamente
+                                $('.users').append(
+                                    `<div class="my-4 px-2 card col-12 col-sm-6 col-lg-4">
+                                        <div class="card-body">
+                                            <h4 class="card-title">${nombre}</h4>
+                                            <h6 class="card-subtitle">${email}</h6>
+                                            <button class="mt-3 btn btn-primary"  data-toggle="modal" data-target="#editAdminModal">Editar</button>
+                                            <button class="mt-3 btn btn-danger delete">Eliminar</button>
+                                        </div>
+                                    </div>`).fadeIn('slow');
                             }
                         }
                     });
                 },
                 error: function (error) {
+                    $(btn).find(".loading").remove();
+                    $(btn).text('Guardar');
                     console.log(error);
                     errorGenAlert();
                 }
@@ -168,17 +190,27 @@
                 return false
             }
 
+            let btn = $(this);
+            $(btn).text('');
+            $(btn).append(
+                `<span class='loading spinner-border spinner-border-sm' role='status' aria-hidden='true'></span>
+                <span class='loading sr-only'>Loading...</span>`
+            )
+
             $.ajax({
                 type: "PUT",
                 url: "/admin/editUserAdmin",
                 data: {"_token": "{{ csrf_token() }}", email: email, password: password1},
                 dataType: "JSON",
                 success: function (response) {
+                    $(btn).find(".loading").remove();
+                    $(btn).text('Guardar');
+
                     $.confirm({
                         title: 'Actualizado',
                         type: 'green',
                         content: 'Se actualizo con exito!',
-                        autoClose: 'ok|2000',
+                        autoClose: 'ok|1000',
                         buttons: {
                             ok: function () {
                                 $('#editAdminModal').modal('hide')
@@ -187,14 +219,18 @@
                     });
                 },
                 error: function (error) {
+                    $(btn).find(".loading").remove();
+                    $(btn).text('Guardar');
+
                     console.log(error);
                     errorGenAlert();
                 }
             })
         })
 
-        $('.delete').on('click', function () {
+        $('.users').on('click', '.delete', function () {
             let button = $(this)
+
             $.confirm({
                 title: 'Eliminar usuario administrador ?',
                 content: 'Esta seguro de eliminar un usuario administrador',
@@ -205,7 +241,13 @@
                         text: 'Si',
                         btnClass: 'btn-red',
                         action: function () {
+                            $(button).text('');
+                            $(button).append(
+                                `<span class='loading spinner-border spinner-border-sm' role='status' aria-hidden='true'></span>
+                                 <span class='loading sr-only'>Loading...</span>`
+                            )
                             const email = button.siblings('h6').text()
+
                             $.ajax({
                                 type: "DELETE",
                                 url: "/admin/deleteUserAdmin",
@@ -216,14 +258,18 @@
                                         title: 'Usuario eliminado',
                                         type: 'green',
                                         content: 'Se elimino con exito!',
-                                        autoClose: 'ok|2000',
+                                        autoClose: 'ok|1000',
                                         buttons: {
                                             ok: function () {
+                                                //Eliminar card dinamicamente
+                                                $(button).parent().parent().fadeOut();
                                             }
                                         }
                                     });
                                 },
                                 error: function (error) {
+                                    $(button).find(".loading").remove();
+                                    $(button).text('Eliminar');
                                     console.log(error);
                                     errorGenAlert();
                                 }
