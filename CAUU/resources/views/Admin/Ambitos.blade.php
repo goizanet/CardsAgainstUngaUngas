@@ -66,7 +66,6 @@
             <div class="my-4 px-2 card col-12 col-sm-6 col-lg-4">
                 <div class="card-body">
                     <h4 class="card-title">{{$field->name}}</h4>
-                    <h6 class="card-subtitle">{{$field->email}}</h6>
                     <button class="mt-3 btn btn-primary"  data-toggle="modal" data-target="#editAdminModal">Editar</button>
                     <button class="mt-3 btn btn-danger delete">Eliminar</button>
                 </div>

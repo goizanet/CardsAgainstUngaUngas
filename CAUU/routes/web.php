@@ -30,7 +30,7 @@ Route::group(['prefix'=>'admin'], function () {
         Route::post('addMujer', [AdminController::class, 'addMujer']);
         Route::delete('deleteMujer', [AdminController::class, 'deleteMujer']);
 
-        Route::get('listDatosMujer', [AdminController::class, 'listDatosMujer']);
+        Route::get('listDatosMujer', [AdminController::class, 'listDatosMujer'])->name('listDatosMujeres');
         Route::post('addDatoMujer', [AdminController::class, 'addDatoMujer']);
         Route::delete('deleteDatoMujer', [AdminController::class, 'deleteDatoMujer']);
 
