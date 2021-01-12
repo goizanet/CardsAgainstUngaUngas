@@ -19,19 +19,3 @@
         </div>
     @endforeach
 @endsection
-
-
-{{--
-Se tiene que poder editar:
-    - Nombre -
-    - Apellido -
-    - Fecha nac -
-    - Fecha mue -
-    - lore es -
-    - lore en -
-    - lore eus -
-    - Zona geo -
-    - Continente (fk)???
-    - Img -
-
---}}
