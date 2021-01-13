@@ -16,6 +16,22 @@
                         <div class="form-group">
                             <label for="nombre">Nombre</label>
                             <input type="text" class="form-control" id="nombre" aria-describedby="nombre">
+                            <label for="apellido">Apellido</label>
+                            <input type="text" class="form-control" id="apellido" aria-describedby="apellido">
+                            <label for="lore_es">Descripcion en castellano</label>
+                            <input type="text" class="form-control" id="lore_es" aria-describedby="lore_es">
+                            <label for="lore_eus">Descripcion en euskera</label>
+                            <input type="text" class="form-control" id="lore_eus" aria-describedby="lore_eus">
+                            <label for="lore_en">Descripcion en ingles</label>
+                            <input type="text" class="form-control" id="lore_en" aria-describedby="lore_en">
+                            <label for="zona_geo">Zona geografica</label>
+                            <input type="text" class="form-control" id="zona_geo" aria-describedby="zona_geo">
+
+                            <select name="ambitos" id="ambitos">
+                            @foreach($ambitos as $ambito)
+                                <option value="{{$ambito->id}}">{{$ambito->name}}</option>
+                            @endforeach
+                            </select>
                         </div>
                     </form>
                 </div>
@@ -118,7 +134,7 @@
 
             $.ajax({
                 type: "POST",
-                url: "/admin/addAmbito",
+                url: "/admin/addMujer",
                 data: {"_token": "{{ csrf_token() }}" , nombre: nombre},
                 dataType: "JSON",
                 success: function (response) {
@@ -126,7 +142,7 @@
                     $(btn).text('Guardar');
 
                     $.confirm({
-                        title: 'Ambito creado',
+                        title: 'Mujer creado',
                         type: 'green',
                         content: 'Se añadio con exito!',
                         autoClose: 'ok|1000',
@@ -135,7 +151,7 @@
                                 $('#addWomanModal').modal('hide')
 
                                 //Add card dinamyc
-                                $('.ambitos').append(
+                                $('.women').append(
                                     `<div class="my-4 px-2 card col-12 col-sm-6 col-lg-4">
                                         <div class="card-body">
                                             <h4 class="card-title">${nombre}</h4>
@@ -171,7 +187,7 @@
 
             $.ajax({
                 type: "PUT",
-                url: "/admin/editAmbito",
+                url: "/admin/editMujer",
                 data: {"_token": "{{ csrf_token() }}", nombre : nombre, id:id},
                 dataType: "JSON",
                 success: function (response) {
@@ -186,7 +202,7 @@
                         autoClose: 'ok|1000',
                         buttons: {
                             ok: function () {
-                                $('#editWomanModal').modal('hide')
+                                $('#editWoman' + 'Modal').modal('hide')
                             }
                         }
                     });
@@ -200,12 +216,12 @@
             })
         })
 
-        $('.ambitos').on('click', '.delete', function () {
+        $('.women').on('click', '.delete', function () {
             let button = $(this)
 
             $.confirm({
-                title: 'Eliminar ambito ?',
-                content: 'Esta seguro de eliminar este ambito ?',
+                title: 'Eliminar esta mujer?',
+                content: 'Esta seguro de eliminar esta mujer?',
                 type: 'red',
                 typeAnimated: true,
                 buttons: {
