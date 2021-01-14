@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\Auth\AuthController;
 use App\Http\Controllers\Api\Data\DataInfoController;
+use App\Http\Controllers\Api\ProcessData\ProfileController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +33,10 @@ Route::group(['prefix'=>'auth'], function () {
 
         Route::group(["prefix" => 'data'], function () {
             Route::get('Ambitos', [DataInfoController::class, 'listFields']);
+        });
+
+        Route::group(["prefix" => 'processData'], function () {
+            Route::post('EditProfile', [ProfileController::class, 'editData']);
         });
     });
 });
