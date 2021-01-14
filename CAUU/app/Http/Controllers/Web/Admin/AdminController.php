@@ -56,7 +56,8 @@ class AdminController extends Controller
     {
         $data = [
             'women' => Mujer::all(),
-            'ambitos' => Ambito::all()
+            'fields' => Ambito::all(),
+            'continents' => Continente::all()
         ];
 
         return view('Admin.Mujeres', $data);

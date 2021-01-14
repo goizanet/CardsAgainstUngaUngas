@@ -6,13 +6,16 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="addWomanModalLabel">Añadir ambito</h5>
+                    <h5 class="modal-title" id="addWomanModalLabel">Añadir mujer</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
                     <form id="addWomanAdminForm">
+                        @csrf
+                        {{--Datos personales de la mujer--}}
+                        <h6>Datos personales</h6>
                         <div class="form-group">
                             <label for="nombre">Nombre</label>
                             <input type="text" class="form-control" id="nombre" aria-describedby="nombre">
@@ -26,12 +29,34 @@
                             <input type="text" class="form-control" id="lore_en" aria-describedby="lore_en">
                             <label for="zona_geo">Zona geografica</label>
                             <input type="text" class="form-control" id="zona_geo" aria-describedby="zona_geo">
-
-                            <select name="ambitos" id="ambitos">
-                            @foreach($ambitos as $ambito)
-                                <option value="{{$ambito->id}}">{{$ambito->name}}</option>
+                            <label for="ambitos">Ámbitos</label>
+                            <select class="form-control" for="ambitos" id="ambitos">
+                            @foreach($fields as $field)
+                                <option value="{{$field->id}}">{{$field->nombre}}</option>
                             @endforeach
                             </select>
+                            <label for="continente">Continente</label>
+                            <select class="form-control" id="continente">
+                                @foreach($continents as $continent)
+                                    <option value="{{$continent->id}}">{{$continent->nombre}}</option>
+                                @endforeach
+                            </select>
+                            <label for="fecha_nac">Fecha de nacimiento</label>
+                            <input class="form-control" type="date" id="fecha_nac">
+                            <label for="fecha_def">Fecha de muerte</label>
+                            <input class="form-control" type="date" id="fecha_def">
+                            <label for="foto">Foto</label>
+                            <input class="form-control" type="file" id="foto" accept="image/*">
+                        </div>
+                        {{--Datos de la mujer para el juego--}}
+                        <h6>Datos del juego</h6>
+                        <div class="form-group">
+                            <label for="dato_uno">Dato 1</label>
+                            <input class="form-control" type="text" id="dato_uno">
+                            <label for="dato_dos">Dato 2</label>
+                            <input class="form-control" type="text" id="dato_dos">
+                            <label for="dato_tres">Dato 3</label>
+                            <input class="form-control" type="text" id="dato_tres">
                         </div>
                     </form>
                 </div>

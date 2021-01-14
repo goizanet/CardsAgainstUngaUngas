@@ -7,6 +7,8 @@ use Mujer;
 
 class Ambito extends Model
 {
+    protected $table = 'ambitos';
+
     public function mujer() {
         return $this->hasOne(Mujer::class);
     }
