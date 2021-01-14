@@ -93,6 +93,7 @@ class AdminController extends Controller
         $mujer->continente_id = $request->continente_id;
         $mujer->foto = $request->continente_id;
 
+        var_dump($mujer);
         $mujer->save();
 
         return response()->json([
