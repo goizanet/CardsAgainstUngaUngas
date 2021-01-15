@@ -61,6 +61,7 @@ class AuthController extends Controller
         $tokenManager->token->save();
 
         return response()->json([
+            'id' => $user->id,
             'nombre' => $user->name,
             'email' => $user->email,
             'rol' => $user->rol->nombre,
