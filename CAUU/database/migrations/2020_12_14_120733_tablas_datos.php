@@ -68,10 +68,10 @@ class TablasDatos extends Migration
             Schema::create('jugadores', function (Blueprint $table) {
                 $table->id();
                 //
-                $table->unsignedBigInteger('usuario_id');
+                $table->unsignedBigInteger('usuario_id')->nullable();
                 $table->foreign('usuario_id')->references('id')->on('users')->onDelete('cascade');
                 //
-                $table->unsignedBigInteger('coleccion_id');
+                $table->unsignedBigInteger('coleccion_id')->nullable();
                 $table->foreign('coleccion_id')->references('id')->on('colecciones')->onDelete('cascade');
                 //
                 $table->timestamps();
@@ -106,13 +106,13 @@ class TablasDatos extends Migration
             });
         }
 
-        if (!Schema::hasTable('coleccion_mujer_datos'))
+        if (!Schema::hasTable('coleccion_datos'))
         {
-            Schema::create('coleccion_mujer_datos', function (Blueprint $table) {
+            Schema::create('coleccion_datos', function (Blueprint $table) {
                 $table->id();
                 //
-                $table->unsignedBigInteger('coleccion_mujer_id');
-                $table->foreign('coleccion_mujer_id')->references('id')->on('coleccion_mujer')->onDelete('cascade');
+                $table->unsignedBigInteger('coleccion_id');
+                $table->foreign('coleccion_id')->references('id')->on('colecciones')->onDelete('cascade');
                 //
                 $table->unsignedBigInteger('dato_id');
                 $table->foreign('dato_id')->references('id')->on('datos')->onDelete('cascade');

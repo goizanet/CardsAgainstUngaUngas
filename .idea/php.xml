@@ -107,7 +107,6 @@
       <path value="$PROJECT_DIR$/CAUU/vendor/symfony/http-kernel" />
       <path value="$PROJECT_DIR$/CAUU/vendor/symfony/mime" />
       <path value="$PROJECT_DIR$/CAUU/vendor/symfony/polyfill-ctype" />
-      <path value="$PROJECT_DIR$/CAUU/vendor/symfony/polyfill-iconv" />
       <path value="$PROJECT_DIR$/CAUU/vendor/symfony/polyfill-intl-grapheme" />
       <path value="$PROJECT_DIR$/CAUU/vendor/symfony/polyfill-intl-idn" />
       <path value="$PROJECT_DIR$/CAUU/vendor/symfony/polyfill-intl-normalizer" />

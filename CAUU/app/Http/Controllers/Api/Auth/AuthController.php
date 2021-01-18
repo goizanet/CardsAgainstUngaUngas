@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Api\Auth;
 
 use App\Http\Controllers\Controller;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
-use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
+use Carbon\Carbon;
+use App\User;
+use App\Coleccion;
+use App\Jugador;
 
 class AuthController extends Controller
 {
@@ -19,13 +21,20 @@ class AuthController extends Controller
             'password' => ['required',  'string'],
         ]);
 
-        $user = new User;
-
+        $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
-
         $user->save();
+
+        //Jugador y Coleccion
+        $coleccion = new Coleccion();
+        $coleccion->save();
+
+        $jugador = new Jugador();
+        $jugador->usuario_id = $user->id;
+        $jugador->coleccion_id = $coleccion->id;
+        $jugador->save();
 
         return response()->json([
             'message'=> 'Usuario creado!',
@@ -61,10 +70,13 @@ class AuthController extends Controller
         $tokenManager->token->save();
 
         return response()->json([
+            'id' => $user->id,
+            'nombre' => $user->name,
+            'email' => $user->email,
             'rol' => $user->rol->nombre,
-             'access_token' => $tokenManager->accessToken
-            ,'token_type' => 'Bearer'
-            ,'expires_at' => Carbon::parse($tokenManager->token->expires_at)->toDateTimeString()
+            'access_token' => $tokenManager->accessToken,
+            'token_type' => 'Bearer',
+            'expires_at' => Carbon::parse($tokenManager->token->expires_at)->toDateTimeString()
         ]);
     }
 

@@ -98,7 +98,6 @@
       <excludeFolder url="file://$MODULE_DIR$/CAUU/vendor/symfony/http-kernel" />
       <excludeFolder url="file://$MODULE_DIR$/CAUU/vendor/symfony/mime" />
       <excludeFolder url="file://$MODULE_DIR$/CAUU/vendor/symfony/polyfill-ctype" />
-      <excludeFolder url="file://$MODULE_DIR$/CAUU/vendor/symfony/polyfill-iconv" />
       <excludeFolder url="file://$MODULE_DIR$/CAUU/vendor/symfony/polyfill-intl-grapheme" />
       <excludeFolder url="file://$MODULE_DIR$/CAUU/vendor/symfony/polyfill-intl-idn" />
       <excludeFolder url="file://$MODULE_DIR$/CAUU/vendor/symfony/polyfill-intl-normalizer" />
