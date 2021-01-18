@@ -34,6 +34,7 @@ Route::group(['prefix'=>'auth'], function () {
         Route::group(["prefix" => 'data'], function () {
             Route::get('Ambitos', [DataInfoController::class, 'listFields']);
             Route::get('Coleccion', [DataInfoController::class, 'getCollection']);
+            Route::get('Coleccion/mujer', [DataInfoController::class, 'getMujerUnlockedDatos']);
         });
 
         Route::group(["prefix" => 'processData'], function () {
