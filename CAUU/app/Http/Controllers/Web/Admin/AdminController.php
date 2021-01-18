@@ -11,6 +11,7 @@ use App\Mujer;
 use App\User;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
+use function Psy\debug;
 
 class AdminController extends Controller
 {
@@ -68,12 +69,12 @@ class AdminController extends Controller
         $request->validate([
             'nombre' => ['required', 'string', ] ,
             'apellido' => ['nullable', 'string', ] ,
-            'fecha_nacimiento' => ['required', 'date'] ,
-            'fecha_muerte' => ['nullable', 'date'] ,
+            'fecha_nac' => ['required', 'date'] ,
+            'fecha_def' => ['nullable', 'date'] ,
             'lore_es' => ['required', 'string', ] ,
             'lore_en' => ['nullable', 'string', ] ,
             'lore_eus' => ['nullable', 'string', ] ,
-            'zona_geografica' => ['required', 'string',] ,
+            'zona_geo' => ['required', 'string',] ,
             'ambito_id' => ['required', 'numeric'] ,
             'continente_id' => ['required', 'numeric'] ,
             'foto' => ['nullable', 'string',] ,
@@ -83,17 +84,16 @@ class AdminController extends Controller
 
         $mujer->nombre = $request->nombre;
         $mujer->apellido = $request->apellido;
-        $mujer->fecha_nacimiento = $request->fecha_nacimiento;
-        $mujer->fecha_muerte = $request->fecha_muerte;
+        $mujer->fecha_nacimiento = $request->fecha_nac;
+        $mujer->fecha_muerte = $request->fecha_def;
         $mujer->lore_es = $request->lore_es;
         $mujer->lore_en = $request->lore_en;
         $mujer->lore_eus = $request->lore_eus;
-        $mujer->zona_geografica = $request->zona_geografica;
+        $mujer->zona_geografica = $request->zona_geo;
         $mujer->ambito_id = $request->ambito_id;
         $mujer->continente_id = $request->continente_id;
-        $mujer->foto = $request->continente_id;
+        $mujer->foto = $request->foto;
 
-        var_dump($mujer);
         $mujer->save();
 
         return response()->json([

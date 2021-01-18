@@ -18,35 +18,35 @@
                         <h6>Datos personales</h6>
                         <div class="form-group">
                             <label for="nombre">Nombre</label>
-                            <input type="text" class="form-control" id="nombre" aria-describedby="nombre">
+                            <input type="text" class="form-control" id="nombre" name="nombre" aria-describedby="nombre">
                             <label for="apellido">Apellido</label>
-                            <input type="text" class="form-control" id="apellido" aria-describedby="apellido">
+                            <input type="text" class="form-control" id="apellido" name="apellido" aria-describedby="apellido">
                             <label for="lore_es">Descripcion en castellano</label>
-                            <input type="text" class="form-control" id="lore_es" aria-describedby="lore_es">
+                            <input type="text" class="form-control" id="lore_es" name="lore_es" aria-describedby="lore_es">
                             <label for="lore_eus">Descripcion en euskera</label>
-                            <input type="text" class="form-control" id="lore_eus" aria-describedby="lore_eus">
+                            <input type="text" class="form-control" id="lore_eus" name="lore_eus" aria-describedby="lore_eus">
                             <label for="lore_en">Descripcion en ingles</label>
-                            <input type="text" class="form-control" id="lore_en" aria-describedby="lore_en">
+                            <input type="text" class="form-control" id="lore_en" name="lore_en" aria-describedby="lore_en">
                             <label for="zona_geo">Zona geografica</label>
-                            <input type="text" class="form-control" id="zona_geo" aria-describedby="zona_geo">
+                            <input type="text" class="form-control" id="zona_geo" name="zona_geo" aria-describedby="zona_geo">
                             <label for="ambitos">Ámbitos</label>
-                            <select class="form-control" for="ambitos" id="ambitos">
+                            <select class="form-control" for="ambitos" name="ambitos" id="ambitos">
                             @foreach($fields as $field)
                                 <option value="{{$field->id}}">{{$field->nombre}}</option>
                             @endforeach
                             </select>
                             <label for="continente">Continente</label>
-                            <select class="form-control" id="continente">
+                            <select class="form-control" id="continente" name="continente">
                                 @foreach($continents as $continent)
                                     <option value="{{$continent->id}}">{{$continent->nombre}}</option>
                                 @endforeach
                             </select>
                             <label for="fecha_nac">Fecha de nacimiento</label>
-                            <input class="form-control" type="date" id="fecha_nac">
+                            <input class="form-control" type="date" id="fecha_nac" name="fecha_nac">
                             <label for="fecha_def">Fecha de muerte</label>
-                            <input class="form-control" type="date" id="fecha_def">
+                            <input class="form-control" type="date" id="fecha_def" name="fecha_def">
                             <label for="foto">Foto</label>
-                            <input class="form-control" type="file" id="foto" accept="image/*">
+                            <input class="form-control" type="file" id="foto" name="foto" accept="image/*">
                         </div>
                         {{--Datos de la mujer para el juego--}}
                         <h6>Datos del juego</h6>
@@ -134,6 +134,17 @@
 
         $('#crear').on('click', function (event) {
             const nombre = $('#nombre').val();
+            const apellido = $('#apellido').val();
+            const fecha_nac = $('#fecha_nac').val();
+            const fecha_def = $('#fecha_def').val();
+            const lore_es = $('#lore_es').val();
+            const lore_eus = $('#lore_eus').val();
+            const lore_en = $('#lore_en').val();
+            const zona_geo = $('#zona_geo').val();
+            const ambito_id = $('#ambitos').val();
+            const continente_id = $('#continente').val();
+            const foto = $('#foto').val();
+
             let btn = $(this);
 
             if (nombre.trim() === '') {
@@ -160,14 +171,26 @@
             $.ajax({
                 type: "POST",
                 url: "/admin/addMujer",
-                data: {"_token": "{{ csrf_token() }}" , nombre: nombre},
+                data: {"_token": "{{ csrf_token() }}" ,
+                    nombre: nombre,
+                    apellido: apellido,
+                    fecha_nac: fecha_nac,
+                    fecha_def: fecha_def,
+                    lore_es: lore_es,
+                    lore_eus: lore_eus,
+                    lore_en: lore_en,
+                    zona_geo: zona_geo,
+                    ambito_id: ambito_id,
+                    continente_id: continente_id,
+                    foto: foto
+                },
                 dataType: "JSON",
                 success: function (response) {
                     $(btn).find(".loading").remove();
                     $(btn).text('Guardar');
 
                     $.confirm({
-                        title: 'Mujer creado',
+                        title: 'Mujer creada',
                         type: 'green',
                         content: 'Se añadio con exito!',
                         autoClose: 'ok|1000',
