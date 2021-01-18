@@ -49,8 +49,8 @@
         </div>
     </nav>
 
-    <section class="container">
-            @yield('primary-content')
+    @yield('primary-content')    <section class="container">
+
     </section>
 
     <footer>
