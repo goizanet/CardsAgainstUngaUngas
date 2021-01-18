@@ -68,10 +68,10 @@ class TablasDatos extends Migration
             Schema::create('jugadores', function (Blueprint $table) {
                 $table->id();
                 //
-                $table->unsignedBigInteger('usuario_id');
+                $table->unsignedBigInteger('usuario_id')->nullable();
                 $table->foreign('usuario_id')->references('id')->on('users')->onDelete('cascade');
                 //
-                $table->unsignedBigInteger('coleccion_id');
+                $table->unsignedBigInteger('coleccion_id')->nullable();
                 $table->foreign('coleccion_id')->references('id')->on('colecciones')->onDelete('cascade');
                 //
                 $table->timestamps();
