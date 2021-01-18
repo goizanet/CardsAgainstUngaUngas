@@ -43,6 +43,10 @@ class User extends Authenticatable
         return $this->belongsTo(Rol::class);
     }
 
+    public function jugador() {
+        return $this->hasOne(Jugador::class, 'usuario_id', 'id');
+    }
+
     public function isAdmin() {
         return $this->rol->nombre == 'admin';
     }

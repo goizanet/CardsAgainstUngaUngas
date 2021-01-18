@@ -19,4 +19,8 @@ class Mujer extends Model
     public function ambito() {
         return $this->belongsTo(Ambito::class);
     }
+
+    public function coleccion() {
+        return $this->belongsToMany(Mujer::class, 'coleccion_mujer', 'mujer_id', 'coleccion_id' );
+    }
 }
