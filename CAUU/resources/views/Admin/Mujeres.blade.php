@@ -72,7 +72,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="editWomanLabel">Editar ambito</h5>
+                    <h5 class="modal-title" id="editWomanLabel">Editar mujer</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -80,9 +80,55 @@
 
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="nombreEdit">Nombre</label>
-                        <input type="text" class="form-control" id="nombreEdit" required>
-                        <input type="hidden" name="idEdit" id="idEdit">
+                        <form id="editWomanAdminForm" action="" method="post">
+                            @csrf
+                            @foreach($women as $woman)
+                            {{--Datos personales de la mujer--}}
+                            <h6>Datos personales</h6>
+                            <div class="form-group">
+                                <label for="nombre">Nombre</label>
+                                <input type="text" class="form-control" id="nombre" name="nombre" aria-describedby="nombre" placeholder="">
+                                <label for="apellido">Apellido</label>
+                                <input type="text" class="form-control" id="apellido" name="apellido" aria-describedby="apellido">
+                                <label for="lore_es">Descripcion en castellano</label>
+                                <input type="text" class="form-control" id="lore_es" name="lore_es" aria-describedby="lore_es">
+                                <label for="lore_eus">Descripcion en euskera</label>
+                                <input type="text" class="form-control" id="lore_eus" name="lore_eus" aria-describedby="lore_eus">
+                                <label for="lore_en">Descripcion en ingles</label>
+                                <input type="text" class="form-control" id="lore_en" name="lore_en" aria-describedby="lore_en">
+                                <label for="zona_geo">Zona geografica</label>
+                                <input type="text" class="form-control" id="zona_geo" name="zona_geo" aria-describedby="zona_geo">
+                                <label for="ambitos">Ámbitos</label>
+                                <select class="form-control" for="ambitos" name="ambitos" id="ambitos">
+                                    @foreach($fields as $field)
+                                        <option value="{{$field->id}}">{{$field->nombre}}</option>
+                                    @endforeach
+                                </select>
+                                <label for="continente">Continente</label>
+                                <select class="form-control" id="continente" name="continente">
+                                    @foreach($continents as $continent)
+                                        <option value="{{$continent->id}}">{{$continent->nombre}}</option>
+                                    @endforeach
+                                </select>
+                                <label for="fecha_nac">Fecha de nacimiento</label>
+                                <input class="form-control" type="date" id="fecha_nac" name="fecha_nac">
+                                <label for="fecha_def">Fecha de muerte</label>
+                                <input class="form-control" type="date" id="fecha_def" name="fecha_def">
+                                <label for="foto">Foto</label>
+                                <input class="form-control" type="file" id="foto" name="foto" accept="image/*">
+                            </div>
+                            {{--Datos de la mujer para el juego--}}
+                            <h6>Datos del juego</h6>
+                            <div class="form-group">
+                                <label for="dato_uno">Dato 1</label>
+                                <input class="form-control" type="text" id="dato_uno">
+                                <label for="dato_dos">Dato 2</label>
+                                <input class="form-control" type="text" id="dato_dos">
+                                <label for="dato_tres">Dato 3</label>
+                                <input class="form-control" type="text" id="dato_tres">
+                            </div>
+                            @endforeach
+                        </form>
                     </div>
                 </div>
 
@@ -100,14 +146,25 @@
     @foreach($women as $woman)
         <div class="my-4 px-2 card col-12 col-sm-6 col-lg-4">
             <div class="card-body">
-                <div class="" style="float: left;">
+                <div class="">
                     <img src="{{$woman->foto}}">
                 </div>
                 <div>
                     <h4 class="card-title">{{$woman->nombre}}</h4>
                     <h6 class="card-subtitle">{{$woman->apellido}}</h6>
+            {{--Datos hidden--}}
+                    <input type="hidden" id="nombreH" value="{{$woman->nombre}}">
+                    <p hidden>{{$woman->fecha_nac}}</p>
+                    <p hidden>{{$woman->fecha_def}}</p>
+                    <p hidden>{{$woman->lore_es}}</p>
+                    <p hidden>{{$woman->lore_eus}}</p>
+                    <p hidden>{{$woman->lore_en}}</p>
+                    <p hidden>{{$woman->zona_geo}}</p>
+                    <p hidden>{{$woman->ambito_id}}</p>
+                    <p hidden>{{$woman->continente_id}}</p>
+                    <p hidden>{{$woman->foto}}</p>
                 </div>
-                <button class="mt-3 btn btn-primary"  data-toggle="modal" data-target="#editWomanModal">Editar</button>
+                <button class="mt-3 btn btn-primary" name="{{$woman->id}}" data-toggle="modal" data-target="#editWomanModal">Editar</button>
                 <button class="mt-3 btn btn-danger delete">Eliminar</button>
             </div>
         </div>
@@ -119,12 +176,24 @@
             var button = $(event.relatedTarget)
             var modal = $(this)
 
-            modal.find('#nombreEdit').val(button.siblings('h4').text())
+            console.log(button.siblings('#nombreH').val())
+
+            modal.find('#nombre').val(button.siblings('#nombreH').val())
+            modal.find('#apellido').val(button.siblings('p').val())
+            modal.find('#fecha_nac').val(button.siblings('p').val())
+            modal.find('#fecha_def').val(button.siblings('p').val())
+            modal.find('#lore_es').val(button.siblings('p').val())
+            modal.find('#lore_eus').val(button.siblings('p').val())
+            modal.find('#lore_en').val(button.siblings('p').val())
+            modal.find('#zona_geo').val(button.siblings('p').val())
+            modal.find('#ambito_id').val(button.siblings('p').val())
+            modal.find('#continente_id').val(button.siblings('p').val())
+            modal.find('#foto').val(button.siblings('p').val())
             modal.find('#idEdit').val(button.siblings('input[name="id"]').val())
         })
 
         $('#editWomanModal').on('hidden.bs.modal', function (e) {
-            $('#nombreEdit').val('');
+            $('#nombre').val('');
             $('#idEdit').val('');
         })
 
