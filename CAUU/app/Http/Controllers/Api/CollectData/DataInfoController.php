@@ -26,8 +26,26 @@ class DataInfoController extends Controller
     public function getCollection(Request $request) {
         $mujeres = $request->user()->jugador->coleccion->mujeres;
 
-        return response()->json(
-            ['mujeres' => $mujeres,]
-        );
+        return response()->json([
+            'mujeres' => $mujeres,
+        ]);
+    }
+
+    public function getMujerUnlockedDatos(Request $request) {
+        $request->validate([
+            'id' => ['required', 'numeric']
+        ]);
+
+        $userCollection = $request->user()->jugador->coleccion;
+
+        $mujer = $userCollection->mujeres()->where('id',$request->id)->firstOrFail();
+
+        $datos = $userCollection->findDatosMujer($mujer->id);
+
+        return response()->json([
+            'mujer' => $mujer,
+            'datos' => $datos,
+            'total' => $mujer->datos()->count()
+        ]);
     }
 }
