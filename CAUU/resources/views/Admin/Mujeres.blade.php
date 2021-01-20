@@ -82,7 +82,6 @@
                     <div class="form-group">
                         <form id="editWomanAdminForm" action="" method="post">
                             @csrf
-                            @foreach($women as $woman)
                             {{--Datos personales de la mujer--}}
                             <h6>Datos personales</h6>
                             <div class="form-group">
@@ -127,7 +126,6 @@
                                 <label for="dato_tres">Dato 3</label>
                                 <input class="form-control" type="text" id="dato_tres">
                             </div>
-                            @endforeach
                         </form>
                     </div>
                 </div>
@@ -149,20 +147,20 @@
                 <div class="">
                     <img src="{{$woman->foto}}">
                 </div>
-                <div>
+                <div class="womanData">
                     <h4 class="card-title">{{$woman->nombre}}</h4>
                     <h6 class="card-subtitle">{{$woman->apellido}}</h6>
             {{--Datos hidden--}}
                     <input type="hidden" id="nombreH" value="{{$woman->nombre}}">
-                    <p hidden>{{$woman->fecha_nac}}</p>
-                    <p hidden>{{$woman->fecha_def}}</p>
-                    <p hidden>{{$woman->lore_es}}</p>
-                    <p hidden>{{$woman->lore_eus}}</p>
-                    <p hidden>{{$woman->lore_en}}</p>
-                    <p hidden>{{$woman->zona_geo}}</p>
-                    <p hidden>{{$woman->ambito_id}}</p>
-                    <p hidden>{{$woman->continente_id}}</p>
-                    <p hidden>{{$woman->foto}}</p>
+                    <input type="hidden" id="apellidoH" value="{{$woman->apellido}}">
+                    <input type="hidden" id="fecha_nacH" value="{{$woman->fecha_nac}}">
+                    <input type="hidden" id="fecha_defH" value="{{$woman->fecha_def}}">                    <input type="hidden" id="lore_esH">{{$woman->lore_es}}</input>
+                    <input type="hidden" id="lore_eusH" value="{{$woman->lore_eus}}">
+                    <input type="hidden" id="lore_enH" value="{{$woman->lore_en}}">
+                    <input type="hidden" id="zona_geoH" value="{{$woman->zona_geo}}">
+                    <input type="hidden" id="ambito_idH" value="{{$woman->ambito_id}}">
+                    <input type="hidden" id="continente_idH" value="{{$woman->continente_id}}">
+                    <input type="hidden" id="fotoH" value="{{$woman->foto}}">
                 </div>
                 <button class="mt-3 btn btn-primary" name="{{$woman->id}}" data-toggle="modal" data-target="#editWomanModal">Editar</button>
                 <button class="mt-3 btn btn-danger delete">Eliminar</button>
@@ -176,19 +174,19 @@
             var button = $(event.relatedTarget)
             var modal = $(this)
 
-            console.log(button.siblings('#nombreH').val())
+           // console.log(button.siblings('#nombreH').val())
 
-            modal.find('#nombre').val(button.siblings('#nombreH').val())
-            modal.find('#apellido').val(button.siblings('p').val())
-            modal.find('#fecha_nac').val(button.siblings('p').val())
-            modal.find('#fecha_def').val(button.siblings('p').val())
-            modal.find('#lore_es').val(button.siblings('p').val())
-            modal.find('#lore_eus').val(button.siblings('p').val())
-            modal.find('#lore_en').val(button.siblings('p').val())
-            modal.find('#zona_geo').val(button.siblings('p').val())
-            modal.find('#ambito_id').val(button.siblings('p').val())
-            modal.find('#continente_id').val(button.siblings('p').val())
-            modal.find('#foto').val(button.siblings('p').val())
+            modal.find('#nombre').val(button.siblings(".womanData").find('#nombreH').val())
+            modal.find('#apellido').val(button.siblings(".womanData").find('#apellidoH').val())
+            modal.find('#fecha_nac').val(button.siblings(".womanData").find('#fecha_nacH').val())
+            modal.find('#fecha_def').val(button.siblings(".womanData").find('#fecha_defH').val())
+            modal.find('#lore_es').val(button.siblings(".womanData").find('#lore_esH').val())
+            modal.find('#lore_eus').val(button.siblings(".womanData").find('#lore_eusH').val())
+            modal.find('#lore_en').val(button.siblings(".womanData").find('#lore_enH').val())
+            modal.find('#zona_geo').val(button.siblings(".womanData").find('#zona_geoH').val())
+            modal.find('#ambito_id').val(button.siblings(".womanData").find('#ambito_idH').val())
+            modal.find('#continente_id').val(button.siblings(".womanData").find('#continente_idH').val())
+            modal.find('#foto').val(button.siblings(".womanData").find('#fotoH').val())
             modal.find('#idEdit').val(button.siblings('input[name="id"]').val())
         })
 
@@ -292,7 +290,18 @@
         })
 
         $('#edit').on('click', function (event) {
-            let nombre = $('#nombreEdit').val();
+            let nombre = $('#nombre').val();
+            let apellido = $('#apellido').val();
+            let fecha_nac = $('#fecha_nac').val();
+            let fecha_def = $('#fecha_def').val();
+            let lore_es = $('#lore_es').val();
+            let lore_eus = $('#lore_eus').val();
+            let lore_en = $('#lore_en').val();
+            let zona_geo = $('#zona_geo').val();
+            let ambito_id = $('#ambitos').val();
+            let continente_id = $('#continente').val();
+            let foto = $('#foto').val();
+
             let id  = $("#idEdit").val();
             let btn = $(this);
 
@@ -305,7 +314,21 @@
             $.ajax({
                 type: "PUT",
                 url: "/admin/editMujer",
-                data: {"_token": "{{ csrf_token() }}", nombre : nombre, id:id},
+                data: {"_token": "{{ csrf_token() }}",
+                    nombre : nombre,
+                    id:id,
+                    apellido: apellido,
+                    fecha_nac: fecha_nac,
+                    fecha_def: fecha_def,
+                    lore_es: lore_es,
+                    lore_eus: lore_eus,
+                    lore_en: lore_en,
+                    zona_geo: zona_geo,
+                    ambito_id: ambito_id,
+                    continente_id: continente_id,
+                    foto: foto
+                },
+
                 dataType: "JSON",
                 success: function (response) {
                     $(btn).find(".loading").remove();
