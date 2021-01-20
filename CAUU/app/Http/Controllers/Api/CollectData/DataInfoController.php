@@ -27,7 +27,9 @@ class DataInfoController extends Controller
         $mujeres = $request->user()->jugador->coleccion->mujeres;
 
         return response()->json([
+            'ambitos' => Ambito::all(),
             'mujeres' => $mujeres,
+            'total' => Mujer::all()->count()
         ]);
     }
 
@@ -38,14 +40,13 @@ class DataInfoController extends Controller
 
         $userCollection = $request->user()->jugador->coleccion;
 
-        $mujer = $userCollection->mujeres()->where('id',$request->id)->firstOrFail();
+        $mujer = $userCollection->mujeres()->where('mujer_id',$request->id)->firstOrFail();
 
         $datos = $userCollection->findDatosMujer($mujer->id);
 
         return response()->json([
-            'mujer' => $mujer,
             'datos' => $datos,
-            'total' => $mujer->datos()->count()
+            'totalDatos' => $mujer->datos()->count()
         ]);
     }
 }
