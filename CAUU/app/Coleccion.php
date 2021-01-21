@@ -21,12 +21,12 @@ class Coleccion extends Model
     }
 
     public function findDatosMujer (int $id) {
-        $mujer = $this->mujeres()->where('id',$id)->firstOrFail();
+        $mujer = $this->mujeres()->where('mujer_id',$id)->firstOrFail();
         $unlockedData = [];
 
         foreach ($this->datos as $dato) {
             if ($dato->mujer_id == $mujer->id) {
-                array_push($dato);
+                array_push($unlockedData, $dato);
             }
         }
 
