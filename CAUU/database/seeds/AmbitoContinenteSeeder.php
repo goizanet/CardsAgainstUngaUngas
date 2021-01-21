@@ -49,6 +49,10 @@ class AmbitoContinenteSeeder extends Seeder
             'nombre' => 'Psicología'
         ]);
 
+        DB::table('ambitos')->insert([
+            'nombre' => 'Filosofía'
+        ]);
+
         //CONTINENTES
         DB::table('continentes')->insert([
             'nombre' => 'Europa'
