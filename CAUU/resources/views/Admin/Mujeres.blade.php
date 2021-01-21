@@ -117,15 +117,15 @@
                                 <input class="form-control" type="file" id="foto" name="foto" accept="image/*">
                             </div>
                             {{--Datos de la mujer para el juego--}}
-                            <h6>Datos del juego</h6>
-                            <div class="form-group">
-                                <label for="dato_uno">Dato 1</label>
-                                <input class="form-control" type="text" id="dato_uno">
-                                <label for="dato_dos">Dato 2</label>
-                                <input class="form-control" type="text" id="dato_dos">
-                                <label for="dato_tres">Dato 3</label>
-                                <input class="form-control" type="text" id="dato_tres">
-                            </div>
+{{--                            <h6>Datos del juego</h6>--}}
+{{--                            <div class="form-group">--}}
+{{--                                <label for="dato_uno">Dato 1</label>--}}
+{{--                                <input class="form-control" type="text" id="dato_uno">--}}
+{{--                                <label for="dato_dos">Dato 2</label>--}}
+{{--                                <input class="form-control" type="text" id="dato_dos">--}}
+{{--                                <label for="dato_tres">Dato 3</label>--}}
+{{--                                <input class="form-control" type="text" id="dato_tres">--}}
+{{--                            </div>--}}
                         </form>
                     </div>
                 </div>
@@ -151,10 +151,12 @@
                     <h4 class="card-title">{{$woman->nombre}}</h4>
                     <h6 class="card-subtitle">{{$woman->apellido}}</h6>
             {{--Datos hidden--}}
+                    <input type="hidden" id="idH" value="{{$woman->id}}">
                     <input type="hidden" id="nombreH" value="{{$woman->nombre}}">
                     <input type="hidden" id="apellidoH" value="{{$woman->apellido}}">
                     <input type="hidden" id="fecha_nacH" value="{{$woman->fecha_nac}}">
                     <input type="hidden" id="fecha_defH" value="{{$woman->fecha_def}}">                    <input type="hidden" id="lore_esH">{{$woman->lore_es}}</input>
+                    <input type="hidden" id="lore_esH" value="{{$woman->lore_es}}">
                     <input type="hidden" id="lore_eusH" value="{{$woman->lore_eus}}">
                     <input type="hidden" id="lore_enH" value="{{$woman->lore_en}}">
                     <input type="hidden" id="zona_geoH" value="{{$woman->zona_geo}}">
@@ -162,8 +164,8 @@
                     <input type="hidden" id="continente_idH" value="{{$woman->continente_id}}">
                     <input type="hidden" id="fotoH" value="{{$woman->foto}}">
                 </div>
-                <button class="mt-3 btn btn-primary" name="{{$woman->id}}" data-toggle="modal" data-target="#editWomanModal">Editar</button>
-                <button class="mt-3 btn btn-danger delete">Eliminar</button>
+                <button class="mt-3 btn btn-primary" name="btnEdit" id="btnEdit" data-toggle="modal" data-target="#editWomanModal">Editar</button>
+                <button class="mt-3 btn btn-danger delete" >Eliminar</button>
             </div>
         </div>
     @endforeach
@@ -272,7 +274,7 @@
                                             <h4 class="card-title">${nombre}</h4>
                                             <button class="mt-3 btn btn-primary"  data-toggle="modal" data-target="#editWomanModal">Editar</button>
                                             <button class="mt-3 btn btn-danger delete">Eliminar</button>
-                                            <input type="hidden" value="${response.id}" name="id">
+                                            <input type="hidden" value="${response.id}" name="id" id="id">
                                         </div>
                                     </div>`
                                 ).fadeIn();
@@ -290,6 +292,8 @@
         })
 
         $('#edit').on('click', function (event) {
+            let idMujer = $('#idH').val();
+            console.log(idMujer);
             let nombre = $('#nombre').val();
             let apellido = $('#apellido').val();
             let fecha_nac = $('#fecha_nac').val();
@@ -302,7 +306,6 @@
             let continente_id = $('#continente').val();
             let foto = $('#foto').val();
 
-            let id  = $("#idEdit").val();
             let btn = $(this);
 
             $(btn).text('');
@@ -316,7 +319,7 @@
                 url: "/admin/editMujer",
                 data: {"_token": "{{ csrf_token() }}",
                     nombre : nombre,
-                    id:id,
+                    id:idMujer,
                     apellido: apellido,
                     fecha_nac: fecha_nac,
                     fecha_def: fecha_def,
@@ -379,7 +382,7 @@
 
                             $.ajax({
                                 type: "DELETE",
-                                url: "/admin/deleteAmbito",
+                                url: "/admin/deleteMujer",
                                 data: {"_token": "{{ csrf_token() }}", id: id},
                                 dataType: "JSON",
                                 success: function (response) {
