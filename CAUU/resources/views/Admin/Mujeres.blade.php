@@ -42,9 +42,9 @@
                                 @endforeach
                             </select>
                             <label for="fecha_nac">Fecha de nacimiento</label>
-                            <input class="form-control" type="date" id="fecha_nacN" name="fecha_nac">
+                            <input class="form-control" type="date" id="fecha_nacN" name="fecha_nac" value="<?php echo date('Y-m-d'); ?>">
                             <label for="fecha_def">Fecha de muerte</label>
-                            <input class="form-control" type="date" id="fecha_defN" name="fecha_def">
+                            <input class="form-control" type="date" id="fecha_defN" name="fecha_def" value="<?php echo date('Y-m-d'); ?>">
                             <label for="foto">Foto</label>
                             <input class="form-control" type="file" id="foto" name="foto" accept="image/*">
                         </div>
@@ -110,9 +110,9 @@
                                     @endforeach
                                 </select>
                                 <label for="fecha_nac">Fecha de nacimiento</label>
-                                <input class="form-control" type="date" id="fecha_nac" name="fecha_nac">
+                                <input class="form-control" type="date" id="fecha_nac" name="fecha_nac" value="<?php echo date('Y-m-d'); ?>" max="<?php echo date('Y-m-d'); ?>">
                                 <label for="fecha_def">Fecha de muerte</label>
-                                <input class="form-control" type="date" id="fecha_def" name="fecha_def">
+                                <input class="form-control" type="date" id="fecha_def" name="fecha_def" value="<?php echo date('Y-m-d'); ?>" max="<?php echo date('Y-m-d'); ?>">
                                 <label for="foto">Foto</label>
                                 <input class="form-control" type="file" id="foto" name="foto" accept="image/*">
                             </div>
@@ -154,8 +154,8 @@
                     <input type="hidden" id="idH" value="{{$woman->id}}">
                     <input type="hidden" id="nombreH" value="{{$woman->nombre}}">
                     <input type="hidden" id="apellidoH" value="{{$woman->apellido}}">
-                    <input type="hidden" id="fecha_nacH" value="{{$woman->fecha_nac}}">
-                    <input type="hidden" id="fecha_defH" value="{{$woman->fecha_def}}">
+                    <input type="hidden" id="fecha_nacH" value="{{$woman->fecha_nacimiento}}">
+                    <input type="hidden" id="fecha_defH" value="{{$woman->fecha_muerte}}">
                     <input type="hidden" id="lore_esH" value="{{$woman->lore_es}}">
                     <input type="hidden" id="lore_eusH" value="{{$woman->lore_eus}}">
                     <input type="hidden" id="lore_enH" value="{{$woman->lore_en}}">
