@@ -111,14 +111,14 @@ class AdminController extends Controller
         $mujer = Mujer::find($request->id)->firstOrFail();
         $mujer->nombre = $request->nombre;
         $mujer->apellido = $request->apellido;
-        $mujer->fecha_nac = $request->fecha_nac;
-        $mujer->fecha_def = $request->fecha_def;
+        $mujer->fecha_nacimiento = $request->fecha_nac;
+        $mujer->fecha_muerte = $request->fecha_def;
         $mujer->lore_es = $request->lore_es;
         $mujer->lore_eus = $request->lore_eus;
         $mujer->lore_en = $request->lore_en;
-        $mujer->zona_geo = $request->zona_geo;
-        $mujer->ambitos = $request->ambito_id;
-        $mujer->continente = $request->continente_id;
+        $mujer->zona_geografica = $request->zona_geo;
+        $mujer->ambito_id = $request->ambito_id;
+        $mujer->continente_id = $request->continente_id;
         $mujer->foto = $request->foto;
 
 
