@@ -18,33 +18,33 @@
                         <h6>Datos personales</h6>
                         <div class="form-group">
                             <label for="nombre">Nombre</label>
-                            <input type="text" class="form-control" id="nombre" name="nombre" aria-describedby="nombre">
+                            <input type="text" class="form-control" id="nombreN" name="nombre" aria-describedby="nombre">
                             <label for="apellido">Apellido</label>
-                            <input type="text" class="form-control" id="apellido" name="apellido" aria-describedby="apellido">
+                            <input type="text" class="form-control" id="apellidoN" name="apellido" aria-describedby="apellido">
                             <label for="lore_es">Descripcion en castellano</label>
-                            <input type="text" class="form-control" id="lore_es" name="lore_es" aria-describedby="lore_es">
+                            <input type="text" class="form-control" id="lore_esN" name="lore_es" aria-describedby="lore_es">
                             <label for="lore_eus">Descripcion en euskera</label>
-                            <input type="text" class="form-control" id="lore_eus" name="lore_eus" aria-describedby="lore_eus">
+                            <input type="text" class="form-control" id="lore_eusN" name="lore_eus" aria-describedby="lore_eus">
                             <label for="lore_en">Descripcion en ingles</label>
-                            <input type="text" class="form-control" id="lore_en" name="lore_en" aria-describedby="lore_en">
+                            <input type="text" class="form-control" id="lore_enN" name="lore_en" aria-describedby="lore_en">
                             <label for="zona_geo">Zona geografica</label>
-                            <input type="text" class="form-control" id="zona_geo" name="zona_geo" aria-describedby="zona_geo">
+                            <input type="text" class="form-control" id="zona_geoN" name="zona_geo" aria-describedby="zona_geo">
                             <label for="ambitos">Ámbitos</label>
-                            <select class="form-control" for="ambitos" name="ambitos" id="ambitos">
+                            <select class="form-control" for="ambitos" name="ambitos" id="ambitosN">
                             @foreach($fields as $field)
                                 <option value="{{$field->id}}">{{$field->nombre}}</option>
                             @endforeach
                             </select>
                             <label for="continente">Continente</label>
-                            <select class="form-control" id="continente" name="continente">
+                            <select class="form-control" id="continente" name="continenteN">
                                 @foreach($continents as $continent)
                                     <option value="{{$continent->id}}">{{$continent->nombre}}</option>
                                 @endforeach
                             </select>
                             <label for="fecha_nac">Fecha de nacimiento</label>
-                            <input class="form-control" type="date" id="fecha_nac" name="fecha_nac">
+                            <input class="form-control" type="date" id="fecha_nacN" name="fecha_nac">
                             <label for="fecha_def">Fecha de muerte</label>
-                            <input class="form-control" type="date" id="fecha_def" name="fecha_def">
+                            <input class="form-control" type="date" id="fecha_defN" name="fecha_def">
                             <label for="foto">Foto</label>
                             <input class="form-control" type="file" id="foto" name="foto" accept="image/*">
                         </div>
@@ -86,7 +86,7 @@
                             <h6>Datos personales</h6>
                             <div class="form-group">
                                 <label for="nombre">Nombre</label>
-                                <input type="text" class="form-control" id="nombre" name="nombre" aria-describedby="nombre" placeholder="">
+                                <input type="text" class="form-control" id="nombre" name="nombre" aria-describedby="nombre">
                                 <label for="apellido">Apellido</label>
                                 <input type="text" class="form-control" id="apellido" name="apellido" aria-describedby="apellido">
                                 <label for="lore_es">Descripcion en castellano</label>
@@ -155,11 +155,11 @@
                     <input type="hidden" id="nombreH" value="{{$woman->nombre}}">
                     <input type="hidden" id="apellidoH" value="{{$woman->apellido}}">
                     <input type="hidden" id="fecha_nacH" value="{{$woman->fecha_nac}}">
-                    <input type="hidden" id="fecha_defH" value="{{$woman->fecha_def}}">                    <input type="hidden" id="lore_esH">{{$woman->lore_es}}</input>
+                    <input type="hidden" id="fecha_defH" value="{{$woman->fecha_def}}">
                     <input type="hidden" id="lore_esH" value="{{$woman->lore_es}}">
                     <input type="hidden" id="lore_eusH" value="{{$woman->lore_eus}}">
                     <input type="hidden" id="lore_enH" value="{{$woman->lore_en}}">
-                    <input type="hidden" id="zona_geoH" value="{{$woman->zona_geo}}">
+                    <input type="hidden" id="zona_geoH" value="{{$woman->zona_geografica}}">
                     <input type="hidden" id="ambito_idH" value="{{$woman->ambito_id}}">
                     <input type="hidden" id="continente_idH" value="{{$woman->continente_id}}">
                     <input type="hidden" id="fotoH" value="{{$woman->foto}}">
@@ -202,16 +202,16 @@
         })
 
         $('#crear').on('click', function (event) {
-            const nombre = $('#nombre').val();
-            const apellido = $('#apellido').val();
-            const fecha_nac = $('#fecha_nac').val();
-            const fecha_def = $('#fecha_def').val();
-            const lore_es = $('#lore_es').val();
-            const lore_eus = $('#lore_eus').val();
-            const lore_en = $('#lore_en').val();
-            const zona_geo = $('#zona_geo').val();
-            const ambito_id = $('#ambitos').val();
-            const continente_id = $('#continente').val();
+            const nombre = $('#nombreN').val();
+            const apellido = $('#apellidoN').val();
+            const fecha_nac = $('#fecha_nacN').val();
+            const fecha_def = $('#fecha_defN').val();
+            const lore_es = $('#lore_esN').val();
+            const lore_eus = $('#lore_eusN').val();
+            const lore_en = $('#lore_enN').val();
+            const zona_geo = $('#zona_geoN').val();
+            const ambito_id = $('#ambitosN').val();
+            const continente_id = $('#continenteN').val();
             const foto = $('#foto').val();
 
             let btn = $(this);
@@ -295,17 +295,27 @@
             let idMujer = $('#idH').val();
             console.log(idMujer);
             let nombre = $('#nombre').val();
+            console.log(nombre);
             let apellido = $('#apellido').val();
+            console.log(apellido);
             let fecha_nac = $('#fecha_nac').val();
+            console.log(fecha_nac);
             let fecha_def = $('#fecha_def').val();
+            console.log(fecha_def);
             let lore_es = $('#lore_es').val();
+            console.log(lore_es);
             let lore_eus = $('#lore_eus').val();
+            console.log(lore_eus);
             let lore_en = $('#lore_en').val();
+            console.log(lore_en);
             let zona_geo = $('#zona_geo').val();
+            console.log(zona_geo);
             let ambito_id = $('#ambitos').val();
+            console.log(ambito_id);
             let continente_id = $('#continente').val();
+            console.log(continente_id);
             let foto = $('#foto').val();
-
+            console.log(foto);
             let btn = $(this);
 
             $(btn).text('');
@@ -318,6 +328,7 @@
                 type: "PUT",
                 url: "/admin/editMujer",
                 data: {"_token": "{{ csrf_token() }}",
+                    id: idMujer,
                     nombre : nombre,
                     id:idMujer,
                     apellido: apellido,
@@ -415,5 +426,3 @@
         })
     </script>
 @endsection
-
->>>>>>> 7cd4512de95d2a4c70c4b83f970e0bdf71ef1314
