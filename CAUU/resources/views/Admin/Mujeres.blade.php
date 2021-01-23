@@ -42,9 +42,9 @@
                                 @endforeach
                             </select>
                             <label for="fecha_nac">Fecha de nacimiento</label>
-                            <input class="form-control" type="date" id="fecha_nacN" name="fecha_nac" value="<?php echo date('Y-m-d'); ?>">
+                            <input class="form-control" type="date" id="fecha_nacN" name="fecha_nac" value="<?php echo date('Y-m-d'); ?>" max="<?php echo date('Y-m-d'); ?>">
                             <label for="fecha_def">Fecha de muerte</label>
-                            <input class="form-control" type="date" id="fecha_defN" name="fecha_def" value="<?php echo date('Y-m-d'); ?>">
+                            <input class="form-control" type="date" id="fecha_defN" name="fecha_def" value="<?php echo date('Y-m-d'); ?>" max="<?php echo date('Y-m-d'); ?>">
                             <label for="foto">Foto</label>
                             <input class="form-control" type="file" id="foto" name="foto" accept="image/*">
                         </div>
