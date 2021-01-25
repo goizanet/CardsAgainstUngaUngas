@@ -20,7 +20,6 @@
     </header>
 
     <nav class="mt-4 navbar sticky-top navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Mujeres</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -28,7 +27,7 @@
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/admin/home">Home<span class="sr-only">(current)</span></a>
                 </li>
                 <li>
                     <a class="nav-link" href="/admin/listMujeres">Mujeres</a>
@@ -44,7 +43,7 @@
                 </li>
             </ul>
             <span class="navbar-text">
-              Desayunos Feministas
+                Desayunos Feministas
             </span>
         </div>
     </nav>

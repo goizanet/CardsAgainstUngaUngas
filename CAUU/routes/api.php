@@ -17,10 +17,6 @@ use App\Http\Controllers\Api\ProcessData\ProfileController;
 |
 */
 
-Route::get('/test', function () {
-    return "patata";
-});
-
 Route::group(['prefix'=>'auth'], function () {
     //Rutas sin user
     Route::post('register', [AuthController::class, 'register']);
