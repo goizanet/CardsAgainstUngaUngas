@@ -132,10 +132,10 @@ class AdminController extends Controller
     public function deleteMujer (Request $request)
     {
         $request->validate([
-            'mujer_id' => ['required', 'numeric']
+            'id' => ['required', 'numeric']
         ]);
 
-        $mujer = Mujer::findOrFail($request->mujer_id);
+        $mujer = Mujer::findOrFail($request->id);
 
         $mujer->delete();
 
