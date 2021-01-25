@@ -16,7 +16,7 @@
 
 <body class="container-fluid">
     <header>
-        <h1 class="text-center">Configuracion del sitio</h1>
+        <h1 class="text-center">Panel de administradores</h1>
     </header>
 
     <nav class="mt-4 navbar sticky-top navbar-expand-lg navbar-light bg-light">
@@ -33,7 +33,7 @@
                     <a class="nav-link" href="/admin/listMujeres">Mujeres</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/admin/listAmbitos">Ambitos</a>
+                    <a class="nav-link" href="/admin/listAmbitos">Ámbitos</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/admin/UsersAdmin">Usuarios</a>

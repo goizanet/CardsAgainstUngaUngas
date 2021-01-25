@@ -21,11 +21,11 @@
                             <input type="text" class="form-control" id="nombreN" name="nombre" aria-describedby="nombre">
                             <label for="apellido">Apellido</label>
                             <input type="text" class="form-control" id="apellidoN" name="apellido" aria-describedby="apellido">
-                            <label for="lore_es">Descripcion en castellano</label>
+                            <label for="lore_es">Descripción en castellano</label>
                             <input type="text" class="form-control" id="lore_esN" name="lore_es" aria-describedby="lore_es">
-                            <label for="lore_eus">Descripcion en euskera</label>
+                            <label for="lore_eus">Descripción en euskera</label>
                             <input type="text" class="form-control" id="lore_eusN" name="lore_eus" aria-describedby="lore_eus">
-                            <label for="lore_en">Descripcion en ingles</label>
+                            <label for="lore_en">Descripción en ingles</label>
                             <input type="text" class="form-control" id="lore_enN" name="lore_en" aria-describedby="lore_en">
                             <label for="zona_geo">Zona geografica</label>
                             <input type="text" class="form-control" id="zona_geoN" name="zona_geo" aria-describedby="zona_geo">
@@ -89,11 +89,11 @@
                                 <input type="text" class="form-control" id="nombre" name="nombre" aria-describedby="nombre">
                                 <label for="apellido">Apellido</label>
                                 <input type="text" class="form-control" id="apellido" name="apellido" aria-describedby="apellido">
-                                <label for="lore_es">Descripcion en castellano</label>
+                                <label for="lore_es">Descripción en castellano</label>
                                 <input type="text" class="form-control" id="lore_es" name="lore_es" aria-describedby="lore_es">
-                                <label for="lore_eus">Descripcion en euskera</label>
+                                <label for="lore_eus">Descripción en euskera</label>
                                 <input type="text" class="form-control" id="lore_eus" name="lore_eus" aria-describedby="lore_eus">
-                                <label for="lore_en">Descripcion en ingles</label>
+                                <label for="lore_en">Descripción en ingles</label>
                                 <input type="text" class="form-control" id="lore_en" name="lore_en" aria-describedby="lore_en">
                                 <label for="zona_geo">Zona geografica</label>
                                 <input type="text" class="form-control" id="zona_geo" name="zona_geo" aria-describedby="zona_geo">
