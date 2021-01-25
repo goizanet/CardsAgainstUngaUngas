@@ -49,3 +49,24 @@ Route::group(['prefix'=>'admin'], function () {
         Route::get('logout', [AdminController::class, 'doLogout'])->name('logout');
     });
 });
+
+//Rutas para recuperar la contraseña
+Route::get('/forgot-password', function(){
+    return view('auth.forgot-password');
+})->middleware('guest')->name('password.reset');
+
+Route::get('reset-password/{token}', function($token){
+    return view('auth.reset-password', ['token' => $token]);
+})->middleware('guest')->name('password.reset');
+
+Route::post('/forgot-password', function(Request $request){
+    $request->validate(['email' => 'required|email']);
+
+    $status = Password::sendResetLink($request->only('email'));
+
+    return $status === Password::RESET_LINK_SENT
+        ? back()->with(['status' => __($status)])
+        : back()->withErrors(['email' => __($status)]);
+})->middleware('guest')->name('password.email');
+
+

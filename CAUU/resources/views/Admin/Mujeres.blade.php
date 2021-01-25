@@ -61,7 +61,7 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                     <button type="button" class="btn btn-primary" id="crear">Guardar</button>
                 </div>
             </div>
@@ -112,7 +112,7 @@
                                 <label for="fecha_nac">Fecha de nacimiento</label>
                                 <input class="form-control" type="date" id="fecha_nac" name="fecha_nac" value="<?php echo date('Y-m-d'); ?>" max="<?php echo date('Y-m-d'); ?>">
                                 <label for="fecha_def">Fecha de muerte</label>
-                                <input class="form-control" type="date" id="fecha_def" name="fecha_def" value="<?php echo date('Y-m-d'); ?>" max="<?php echo date('Y-m-d'); ?>">
+                                <input class="form-control" type="date" id="fecha_def" name="fecha_def" value="<?php echo date('Y-m-d'); ?>" min="$('#fecha_nac).val()" max="<?php echo date('Y-m-d'); ?>">
                                 <label for="foto">Foto</label>
                                 <input class="form-control" type="file" id="foto" name="foto" accept="image/*">
                             </div>
@@ -131,7 +131,7 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                     <button type="button" class="btn btn-primary" id="edit">Guardar</button>
                 </div>
             </div>
@@ -143,7 +143,7 @@
     </div>
     @foreach($women as $woman)
         <div class="my-4 px-2 card col-12 col-sm-6 col-lg-4">
-            <div class="card-body">
+            <div class="card-body woman">
                 <div class="">
                     <img src="{{$woman->foto}}">
                 </div>
@@ -370,7 +370,7 @@
             })
         })
 
-        $('.women').on('click', '.delete', function () {
+        $('.woman').on('click', '.delete', function () {
             let button = $(this)
 
             $.confirm({
@@ -389,12 +389,14 @@
                                  <span class='loading sr-only'>Loading...</span>`
                             )
 
-                            const id = $(button).siblings('input').val()
-
+                            const id = $('#idH').val()
+                            console.log(id);
                             $.ajax({
                                 type: "DELETE",
                                 url: "/admin/deleteMujer",
-                                data: {"_token": "{{ csrf_token() }}", id: id},
+                                data: {"_token": "{{ csrf_token() }}",
+                                    id: id
+                                },
                                 dataType: "JSON",
                                 success: function (response) {
                                     $(button).parent().parent().fadeOut();
