@@ -30,13 +30,13 @@
                             <label for="zona_geo">Zona geografica</label>
                             <input type="text" class="form-control" id="zona_geoN" name="zona_geo" aria-describedby="zona_geo">
                             <label for="ambitos">Ámbitos</label>
-                            <select class="form-control" for="ambitos" name="ambitos" id="ambitosN">
+                            <select class="form-control" for="ambitos" name="ambitosN" id="ambitosN">
                             @foreach($fields as $field)
                                 <option value="{{$field->id}}">{{$field->nombre}}</option>
                             @endforeach
                             </select>
                             <label for="continente">Continente</label>
-                            <select class="form-control" id="continente" name="continenteN">
+                            <select class="form-control" id="continenteN" name="continenteN">
                                 @foreach($continents as $continent)
                                     <option value="{{$continent->id}}">{{$continent->nombre}}</option>
                                 @endforeach
@@ -140,9 +140,17 @@
 
     <div class="col-12 text-center my-2">
         <button class="mt-3 btn btn-success"  data-toggle="modal" data-target="#addWomanModal">Añadir</button>
+        <select name="filtro" id="filtro">
+            <option value="az">De la A a la Z</option>
+            <option value="za">De la Z a la A</option>
+            @foreach($fields as $field)
+                <option value="{{$field->id}}">{{$field->nombre}}</option>
+            @endforeach
+
+        </select>
     </div>
     @foreach($women as $woman)
-        <div class="my-4 px-2 card col-12 col-sm-6 col-lg-4">
+        <div class="my-4 px-2 card col-12 col-sm-6 col-lg-4" id="tragetaMujer">
             <div class="card-body woman">
                 <div class="">
                     <img src="{{$woman->foto}}">
@@ -426,5 +434,32 @@
                 }
             });
         })
+
+        $('#filtro').on('change', function (){
+            let filtro = $('#filtro').val();
+            let ambitoMostrado = $('#ambito_idH')
+            if(filtro == '1' && ambitoMostrado == '1'){
+                $('#tragetaMujer').hide();
+            }else if(filtro == '2' && ambitoMostrado == '2'){
+                $('#tragetaMujer').hide();
+            }else if(filtro == '3' && ambitoMostrado == '3'){
+                $('#tragetaMujer').hide();
+            }else if(filtro == '4' && ambitoMostrado == '4'){
+                $('#tragetaMujer').hide();
+            }else if(filtro == '5' && ambitoMostrado == '5'){
+                $('#tragetaMujer').hide();
+            }else if(filtro == '6' && ambitoMostrado == '6'){
+                $('#tragetaMujer').hide();
+            }else if(filtro == '7' && ambitoMostrado == '7'){
+                $('#tragetaMujer').hide();
+            }else if(filtro == '8' && ambitoMostrado == '8'){
+                $('#tragetaMujer').hide();
+            }else if(filtro == '9' && ambitoMostrado == '9'){
+                $('#tragetaMujer').hide();
+            }else if(filtro == '10' && ambitoMostrado == '10'){
+                $('#tragetaMujer').hide();
+            }
+        })
+
     </script>
 @endsection

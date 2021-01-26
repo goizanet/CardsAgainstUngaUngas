@@ -53,6 +53,11 @@ class AmbitoContinenteSeeder extends Seeder
             'nombre' => 'Filosofía'
         ]);
 
+        DB::table('ambitos')->insert([
+            'id' => 99,
+            'nombre' => 'Indefinido'
+        ]);
+
         //CONTINENTES
         DB::table('continentes')->insert([
             'nombre' => 'Europa'

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Web\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Ambito;
 use App\Continente;
 use App\Dato;
@@ -262,8 +263,9 @@ class AdminController extends Controller
 
     public function listFields (Request $request)
     {
+
         $data = [
-            'fields' => Ambito::all(),
+            'fields' => Ambito::where('id', '<', '99')->get(),
         ];
 
         return view('Admin.Ambitos', $data);
@@ -310,6 +312,7 @@ class AdminController extends Controller
         ]);
 
         $ambito = Ambito::where('id', $request->id)->firstOrFail();
+        DB::table('mujeres')->where('ambito_id', $request->id)->update(['ambito_id' => '99']);
         $ambito->delete();
 
         return response()->json([
