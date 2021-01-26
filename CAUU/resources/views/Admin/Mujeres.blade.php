@@ -140,6 +140,14 @@
 
     <div class="col-12 text-center my-2">
         <button class="mt-3 btn btn-success"  data-toggle="modal" data-target="#addWomanModal">Añadir</button>
+        <select name="filtro" id="filtro">
+            <option value="az">De la A a la Z</option>
+            <option value="za">De la Z a la A</option>
+            @foreach($fields as $field)
+                <option value="{{$field->id}}">{{$field->nombre}}</option>
+            @endforeach
+
+        </select>
     </div>
     @foreach($women as $woman)
         <div class="my-4 px-2 card col-12 col-sm-6 col-lg-4">
