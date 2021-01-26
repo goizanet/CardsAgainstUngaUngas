@@ -203,7 +203,7 @@
             let button = $(this)
 
             $.confirm({
-                title: 'Eliminar ambito ?',
+                title: 'Eliminar ambito?',
                 content: '¿Está seguro de eliminar este ámbito?<br>Las mujeres que pertenecen a este ámbito pasarán a pertenecer a un ámbito indefinido.',
                 type: 'red',
                 typeAnimated: true,

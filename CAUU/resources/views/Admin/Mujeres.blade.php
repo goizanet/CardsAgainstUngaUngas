@@ -30,13 +30,13 @@
                             <label for="zona_geo">Zona geografica</label>
                             <input type="text" class="form-control" id="zona_geoN" name="zona_geo" aria-describedby="zona_geo">
                             <label for="ambitos">Ámbitos</label>
-                            <select class="form-control" for="ambitos" name="ambitos" id="ambitosN">
+                            <select class="form-control" for="ambitos" name="ambitosN" id="ambitosN">
                             @foreach($fields as $field)
                                 <option value="{{$field->id}}">{{$field->nombre}}</option>
                             @endforeach
                             </select>
                             <label for="continente">Continente</label>
-                            <select class="form-control" id="continente" name="continenteN">
+                            <select class="form-control" id="continenteN" name="continenteN">
                                 @foreach($continents as $continent)
                                     <option value="{{$continent->id}}">{{$continent->nombre}}</option>
                                 @endforeach
