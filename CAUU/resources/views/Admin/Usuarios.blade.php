@@ -25,12 +25,12 @@
 
                         <div class="form-group">
                             <label for="password1">Password</label>
-                            <input type="password" class="form-control" id="passwordAdd1">
+                            <input type="password" class="form-control" id="passwordAdd1" placeholder="ej. 123456Xx">
                         </div>
 
                         <div class="form-group">
                             <label for="password2">Password</label>
-                            <input type="password" class="form-control" id="passwordAdd2">
+                            <input type="password" class="form-control" id="passwordAdd2" placeholder="ej. 123456Xx">
                         </div>
                     </form>
                 </div>
