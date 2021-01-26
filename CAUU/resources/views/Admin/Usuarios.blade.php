@@ -26,11 +26,17 @@
                         <div class="form-group">
                             <label for="password1">Password</label>
                             <input type="password" class="form-control" id="passwordAdd1">
+                            <small id="passwordHelpBlock" class="form-text text-muted">
+                                La contraseña tiene que tener 8 caracteres de longitud, numeros y letras minusculas y mayusculas.
+                            </small>
                         </div>
 
                         <div class="form-group">
                             <label for="password2">Password</label>
                             <input type="password" class="form-control" id="passwordAdd2">
+                            <small id="passwordHelpBlock" class="form-text text-muted">
+                                La contraseña tiene que tener 8 caracteres de longitud, numeros y letras minusculas y mayusculas.
+                            </small>
                         </div>
                     </form>
                 </div>
