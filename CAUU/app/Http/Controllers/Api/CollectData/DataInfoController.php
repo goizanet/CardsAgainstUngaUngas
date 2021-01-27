@@ -24,11 +24,20 @@ class DataInfoController extends Controller
     //** Coleccion */
 
     public function getCollection(Request $request) {
-        $mujeres = $request->user()->jugador->coleccion->mujeres;
+
+        $mujeresDatos = [];
+
+        $userCollection = $request->user()->jugador->coleccion;
+
+        $mujeres = $userCollection->mujeres;
+
+        foreach ($mujeres as $mujer) {
+            array_push($mujeresDatos, ["mujer" => $mujer, "datos" => $userCollection->findDatosMujer($mujer->id)] );
+        }
 
         return response()->json([
             'ambitos' => Ambito::all(),
-            'mujeres' => $mujeres,
+            'cartas' => $mujeresDatos,
             'total' => Mujer::all()->count()
         ]);
     }
