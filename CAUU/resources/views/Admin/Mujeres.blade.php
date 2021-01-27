@@ -139,6 +139,7 @@
     </div>
 
     <div class="col-12 text-center my-2">
+        <p id="pruebaOcultar">prueba de ocultar</p>
         <button class="mt-3 btn btn-success"  data-toggle="modal" data-target="#addWomanModal">Añadir</button>
 {{--        <div class="btn-group">--}}
 {{--            @foreach($fields as $field)--}}
@@ -146,15 +147,25 @@
 {{--                <label class="btn btn-outline-primary"  for="filtro{{$field->id}}">{{$field->nombre}}</label>--}}
 {{--            @endforeach--}}
 {{--        </div>--}}
-        <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
-            @foreach($fields as $field)
+                <input type="checkbox" id="filtroAntropologia" value="antropologia">
+            <label for="filtroAntropologia">Antropologia</label>
+                <input type="checkbox" id="filtroSociologia" value="sociologia">
+            <label for="filtroSociologia">Sociologia</label>
+                <input type="checkbox" id="filtroGeografia" value="geografia">
+            <label for="filtroGeografia">Geografia</label>
+                <input type="checkbox" id="filtroHistoria" value="historia">
+            <label for="filtroHistoria">Historia</label>
+        <br>
+                <input type="checkbox" id="filtroDerecho" value="derecho">
+            <label for="filtroDerecho">Derecho</label>
+                <input type="checkbox" id="filtroEconomia" value="economia">
+            <label for="filtroEconomia">Economia</label>
+                <input type="checkbox" id="filtroPedagogia" value="pedagogia">
+            <label for="filtroPedagogia">Pedagogia</label>
+                <input type="checkbox" id="filtroPsicologia" value="psicologia">
+            <label for="filtroPsicologia">Psicologia</label>
 
-                <label class="btn btn-primary" for="filtro{{$field->id}}">
-                    <input type="checkbox" class="btn-check" id="filtro{{$field->id}}" value="{{$field->id}}" autocomplete="off">
-                    {{$field->nombre}}
-                </label>
-            @endforeach
-        </div>
+        <button class="btn btn-primary" id="btnFiltrar">FILTRAR</button>
 
     </div>
     @foreach($women as $woman)
@@ -442,26 +453,79 @@
                 }
             });
         })
+        $('#btnFiltrar').on('click', function (){
 
-            let filtro = $('#filtro1').val();
-            console.log(filtro);
-            let ambitoMostrado = $('#ambito_idH').val();
-            console.log(ambitoMostrado);
-            if($('#filtro1').is('checked')){
-                if(ambitoMostrado != filtro){
-                    $('#tragetaMujer').hide();
+            if($('#filtroAntropologia').is(':checked')) {
+                // let ambitoId = $('#ambito_idH').val();
+                alert('entra');
+                if(ambitoId == 1){
+                    alert('entra');
+                    $('#pruebaOcultar').hide();
                 }
-                if(ambitoMostrado == filtro){
-                    $('tragetaMujer').show();
+                if(ambitoId != 1){
+                    alert('desaparecer')
+                    $('#trajetaMujer').hide();
                 }
-            }else if($('#filtro2').is('checked')){
-                if(filtro != ambitoMostrado){
-                    $('#tragetaMujer').hide();
-                }
-                if(filtro == ambitoMostrado){
+            }else{
+                alert('no entra');
+            }
 
+            if($('#filtroSociologia').is(':checked')) {
+                let ambitoId = $('#ambito_idH').val();
+                if(ambitoId == 2){
+                    $('#tragetaMujer').show();
+                }else{
+                    $('#trajetaMujer').hide();
                 }
             }
+            $('#filtroGeografia').is(':checked', function () {
+                let ambitoId = $('#ambito_idH').val();
+                if(ambitoId == 3){
+                    $('#tragetaMujer').show();
+                }else{
+                    $('#trajetaMujer').hide();
+                }
+            })
+            $('#filtroHistoria').is(':checked', function () {
+                let ambitoId = $('#ambito_idH').val();
+                if(ambitoId == 4){
+                    $('#tragetaMujer').show();
+                }else{
+                    $('#trajetaMujer').hide();
+                }
+            })
+            $('#filtroDerecho').is(':checked', function () {
+                let ambitoId = $('#ambito_idH').val();
+                if(ambitoId == 5){
+                    $('#tragetaMujer').show();
+                }else{
+                    $('#trajetaMujer').hide();
+                }
+            })
+            $('#filtroEconomia').is(':checked', function () {
+                let ambitoId = $('#ambito_idH').val();
+                if(ambitoId == 6){
+                    $('#tragetaMujer').show();
+                }else{
+                    $('#trajetaMujer').hide();
+                }
+            })
+            $('#filtroPedagogia').is(':checked', function () {
+                let ambitoId = $('#ambito_idH').val();
+                if(ambitoId == 7){
+                    $('#tragetaMujer').show();
+                }
+            })
+            $('#filtroPsicologia').is(':checked', function () {
+                let ambitoId = $('#ambito_idH').val();
+                if(ambitoId == 8){
+                    $('#tragetaMujer').show();
+                }else{
+                    $('#trajetaMujer').hide();
+                }
+            })
+        })
+
 
     </script>
 @endsection
