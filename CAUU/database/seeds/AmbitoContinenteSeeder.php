@@ -34,7 +34,7 @@ class AmbitoContinenteSeeder extends Seeder
         ]);
 
         DB::table('ambitos')->insert([
-            'nombre' => 'Ciencias políticas'
+            'nombre' => 'Filosofía'
         ]);
 
         DB::table('ambitos')->insert([

@@ -129,7 +129,7 @@ class TablasDatos extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('coleccion_mujer_datos');
+        Schema::dropIfExists('coleccion_datos');
         Schema::dropIfExists('coleccion_mujer');
         Schema::dropIfExists('partida_mujer');
         Schema::dropIfExists('partida_dato');

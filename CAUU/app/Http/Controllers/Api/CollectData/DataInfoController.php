@@ -58,4 +58,7 @@ class DataInfoController extends Controller
             'totalDatos' => $mujer->datos()->count()
         ]);
     }
+
+    //** JUEGO */
+
 }
