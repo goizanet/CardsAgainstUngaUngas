@@ -36,5 +36,8 @@ Route::group(['prefix'=>'auth'], function () {
         Route::group(["prefix" => 'processData'], function () {
             Route::post('EditProfile', [ProfileController::class, 'editData']);
         });
+        Route::group(["prefix" => 'processData'], function () {
+            Route::post('SendEmail', [EmailController::class, 'sendEmail']);
+        });
     });
 });
