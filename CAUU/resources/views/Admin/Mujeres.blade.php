@@ -46,7 +46,7 @@
                             <label for="fecha_def">Fecha de muerte</label>
                             <input class="form-control" type="date" id="fecha_defN" name="fecha_def" value="<?php echo date('Y-m-d'); ?>" max="<?php echo date('Y-m-d'); ?>">
                             <label for="foto">Foto</label>
-                            <input class="form-control" type="file" id="foto" name="foto" accept="image/*">
+                            <input class="form-control" type="file" id="fotoN" name="fotoN" accept="image/*">
                         </div>
                         {{--Datos de la mujer para el juego--}}
                         <h6>Datos del juego</h6>
@@ -140,14 +140,22 @@
 
     <div class="col-12 text-center my-2">
         <button class="mt-3 btn btn-success"  data-toggle="modal" data-target="#addWomanModal">Añadir</button>
-        <select name="filtro" id="filtro">
-            <option value="az">De la A a la Z</option>
-            <option value="za">De la Z a la A</option>
+{{--        <div class="btn-group">--}}
+{{--            @foreach($fields as $field)--}}
+{{--                <input class="btn-check" value="{{$field->id}}" id="filtro{{$field->id}}" autocomplete="off">--}}
+{{--                <label class="btn btn-outline-primary"  for="filtro{{$field->id}}">{{$field->nombre}}</label>--}}
+{{--            @endforeach--}}
+{{--        </div>--}}
+        <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
             @foreach($fields as $field)
-                <option value="{{$field->id}}">{{$field->nombre}}</option>
-            @endforeach
 
-        </select>
+                <label class="btn btn-primary" for="filtro{{$field->id}}">
+                    <input type="checkbox" class="btn-check" id="filtro{{$field->id}}" value="{{$field->id}}" autocomplete="off">
+                    {{$field->nombre}}
+                </label>
+            @endforeach
+        </div>
+
     </div>
     @foreach($women as $woman)
         <div class="my-4 px-2 card col-12 col-sm-6 col-lg-4" id="tragetaMujer">
@@ -435,31 +443,25 @@
             });
         })
 
-        $('#filtro').on('change', function (){
-            let filtro = $('#filtro').val();
-            let ambitoMostrado = $('#ambito_idH')
-            if(filtro == '1' && ambitoMostrado == '1'){
-                $('#tragetaMujer').hide();
-            }else if(filtro == '2' && ambitoMostrado == '2'){
-                $('#tragetaMujer').hide();
-            }else if(filtro == '3' && ambitoMostrado == '3'){
-                $('#tragetaMujer').hide();
-            }else if(filtro == '4' && ambitoMostrado == '4'){
-                $('#tragetaMujer').hide();
-            }else if(filtro == '5' && ambitoMostrado == '5'){
-                $('#tragetaMujer').hide();
-            }else if(filtro == '6' && ambitoMostrado == '6'){
-                $('#tragetaMujer').hide();
-            }else if(filtro == '7' && ambitoMostrado == '7'){
-                $('#tragetaMujer').hide();
-            }else if(filtro == '8' && ambitoMostrado == '8'){
-                $('#tragetaMujer').hide();
-            }else if(filtro == '9' && ambitoMostrado == '9'){
-                $('#tragetaMujer').hide();
-            }else if(filtro == '10' && ambitoMostrado == '10'){
-                $('#tragetaMujer').hide();
+            let filtro = $('#filtro1').val();
+            console.log(filtro);
+            let ambitoMostrado = $('#ambito_idH').val();
+            console.log(ambitoMostrado);
+            if($('#filtro1').is('checked')){
+                if(ambitoMostrado != filtro){
+                    $('#tragetaMujer').hide();
+                }
+                if(ambitoMostrado == filtro){
+                    $('tragetaMujer').show();
+                }
+            }else if($('#filtro2').is('checked')){
+                if(filtro != ambitoMostrado){
+                    $('#tragetaMujer').hide();
+                }
+                if(filtro == ambitoMostrado){
+
+                }
             }
-        })
 
     </script>
 @endsection
