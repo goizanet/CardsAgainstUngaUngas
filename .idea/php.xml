@@ -61,7 +61,6 @@
       <path value="$PROJECT_DIR$/CAUU/vendor/opis/closure" />
       <path value="$PROJECT_DIR$/CAUU/vendor/voku/portable-ascii" />
       <path value="$PROJECT_DIR$/CAUU/vendor/asm89/stack-cors" />
-      <path value="$PROJECT_DIR$/CAUU/vendor/brick/math" />
       <path value="$PROJECT_DIR$/CAUU/vendor/nikic/php-parser" />
       <path value="$PROJECT_DIR$/CAUU/vendor/defuse/php-encryption" />
       <path value="$PROJECT_DIR$/CAUU/vendor/facade/flare-client-php" />
@@ -120,6 +119,8 @@
       <path value="$PROJECT_DIR$/CAUU/vendor/sebastian/lines-of-code" />
       <path value="$PROJECT_DIR$/CAUU/vendor/phpunit/php-invoker" />
       <path value="$PROJECT_DIR$/CAUU/vendor/lcobucci/clock" />
+      <path value="$PROJECT_DIR$/CAUU/vendor/brick/math" />
+      <path value="$PROJECT_DIR$/CAUU/vendor/laravel/ui" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.2" />
