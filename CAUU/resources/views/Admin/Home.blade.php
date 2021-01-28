@@ -2,7 +2,7 @@
 
 @section('primary-content')
     <!-- Panel de administrador inicio -->
-    <h1 style="padding-left: 1em;">Bienvenido administrador</h1>
+    <h1 style="padding-left: 2em;">Bienvenido administrador</h1>
 
     <!-- Video explicatorio para el administrador -->
     <!-- Indice del video para administradores OCULTO?? -->
