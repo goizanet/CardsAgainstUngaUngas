@@ -12,6 +12,8 @@
     @yield('custom-css')
 
     <title>@yield('titulo', 'Panel de administracion')</title>
+    <link rel="icon" href="/assets/logoDF.png" type="image/png">
+
 </head>
 
 <body class="container-fluid">
@@ -26,8 +28,8 @@
 
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/admin/home">Home<span class="sr-only">(current)</span></a>
+                <li class="nav-item">
+                    <a class="nav-link @if(Request::is('home')) active @endif" href="/admin/home">Home<span class="sr-only">(current)</span></a>
                 </li>
                 <li>
                     <a class="nav-link" href="/admin/listMujeres">Mujeres</a>
