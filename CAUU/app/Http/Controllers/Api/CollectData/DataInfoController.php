@@ -61,4 +61,21 @@ class DataInfoController extends Controller
 
     //** JUEGO */
 
+    public function getRandomWomansToPlay(Request $request) {
+       $mujeres = Mujer::inRandomOrder()->limit(45)->get();
+
+        $datos = array();
+
+        foreach ($mujeres as $mujer) {
+            foreach ($mujer->datos as $dato) {
+                array_push($datos, ['id' => $mujer->id, 'dato' => $dato->dato]);
+            }
+        }
+
+        Log::debug($datos);
+        return response()->json([
+            "mujeres" => $mujeres,
+            "datos" => $datos
+        ]);
+    }
 }
