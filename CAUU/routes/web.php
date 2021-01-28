@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Web\Admin\AdminController;
+use \App\Http\Controllers\Web\User\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,22 +52,14 @@ Route::group(['prefix'=>'admin'], function () {
 });
 
 //Rutas para recuperar la contraseña
-Route::get('/forgot-password', function(){
-    return view('auth.forgot-password');
-})->middleware('guest')->name('password.reset');
+Route::post('/forgot-password', [UserController::class, 'getForgotPassword'])->middleware('guest')->name('password.reset');
+Route::post('/toVue', [UserController::class, 'resetPasswordEmail'])->name('toVue');
+Route::get('reset-password/{token}', [UserController::class, 'getResetPassword'])->middleware('guest')->name('password.reset');
 
-Route::get('reset-password/{token}', function($token){
-    return view('auth.reset-password', ['token' => $token]);
-})->middleware('guest')->name('password.reset');
+Route::get('/forgot-password', [UserController::class, 'validateResetPassword'])->middleware('guest')->name('password.email');
 
-Route::post('/forgot-password', function(Request $request){
-    $request->validate(['email' => 'required|email']);
-
-    $status = Password::sendResetLink($request->only('email'));
-
-    return $status === Password::RESET_LINK_SENT
-        ? back()->with(['status' => __($status)])
-        : back()->withErrors(['email' => __($status)]);
-})->middleware('guest')->name('password.email');
+Route::post('/reset-password', [UserController::class, 'resetPasswordEmail'])->middleware('guest')->name('password.update');
 
 
+Auth::routes();
+Route::get('/home', [UserController::class, 'getForgotPassword'])->name('home');
