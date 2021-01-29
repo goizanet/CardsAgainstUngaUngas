@@ -115,4 +115,8 @@ class UserController extends Controller
             ? Redirect::to('http://localhost:8080/login')
             : back()->withErrors(['email' => [__($status)]]);
     }
+
+    public function redirectToGame() {
+       return Redirect::to('http://localhost:8080/login');
+    }
 }
