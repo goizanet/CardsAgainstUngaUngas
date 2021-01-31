@@ -20,13 +20,27 @@ class Coleccion extends Model
         return $this->belongsToMany(Dato::class, 'coleccion_datos', 'coleccion_id', 'dato_id');
     }
 
-    public function findDatosMujer (int $id) {
-        $mujer = $this->mujeres()->where('mujer_id',$id)->firstOrFail();
+    public function findDatosMujer (int $id = NULL) {
         $unlockedData = [];
 
-        foreach ($this->datos as $dato) {
-            if ($dato->mujer_id == $mujer->id) {
-                array_push($unlockedData, $dato);
+        if ($id == NULL) {
+            $mujeres = $this->mujeres;
+
+            foreach ($mujeres as $mujer) {
+                foreach ($this->datos as $dato) {
+                    if ($dato->mujer_id == $mujer->id) {
+                        array_push($unlockedData, $dato);
+                    }
+                }
+            }
+        }
+        else {
+            $mujer = $this->mujeres()->where('mujer_id',$id)->firstOrFail();
+
+            foreach ($this->datos as $dato) {
+                if ($dato->mujer_id == $mujer->id) {
+                    array_push($unlockedData, $dato);
+                }
             }
         }
 

@@ -15,4 +15,8 @@ class Jugador extends Model
     public function coleccion() {
         return $this->belongsTo(Coleccion::class,'coleccion_id', 'id');
     }
+
+    public function partidas() {
+        return $this->hasOne(Partida::class, 'jugador_id');
+    }
 }
