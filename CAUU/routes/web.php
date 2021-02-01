@@ -52,14 +52,11 @@ Route::group(['prefix'=>'admin'], function () {
 });
 
 //Rutas para recuperar la contraseña
-Route::post('/forgot-password', [UserController::class, 'getForgotPassword'])->middleware('guest')->name('password.reset');
-Route::post('/toVue', [UserController::class, 'resetPasswordEmail'])->name('toVue');
+Route::get('/forgot-password', [UserController::class, 'getForgotPassword'])->name('password.email');
+Route::post('/forgot-password', [UserController::class, 'validateResetPassword'])->middleware('guest')->name('password.reset');
+
 Route::get('reset-password/{token}', [UserController::class, 'getResetPassword'])->middleware('guest')->name('password.reset');
-
-Route::get('/forgot-password', [UserController::class, 'validateResetPassword'])->middleware('guest')->name('password.email');
-
 Route::post('/reset-password', [UserController::class, 'resetPasswordEmail'])->middleware('guest')->name('password.update');
 
+Route::get('/juego', [UserController::class, 'redirectToGame'])->name('juego');
 
-Auth::routes();
-Route::get('/home', [UserController::class, 'getForgotPassword'])->name('home');

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\Auth\AuthController;
 use App\Http\Controllers\Api\CollectData\DataInfoController;
 use App\Http\Controllers\Api\ProcessData\ProfileController;
-
+use App\Http\Controllers\EmailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,15 +28,20 @@ Route::group(['prefix'=>'auth'], function () {
         Route::get('logout', [AuthController::class, 'logout']);
 
         Route::group(["prefix" => 'data'], function () {
-            Route::get('Ambitos', [DataInfoController::class, 'listFields']);
             Route::get('Coleccion', [DataInfoController::class, 'getCollection']);
             Route::get('Coleccion/mujer', [DataInfoController::class, 'getMujerUnlockedDatos']);
+            Route::get('imprimirJuego', [DataInfoController::class, 'imprimirMujeres']);
+
+
+            //* Juego URLs
+            Route::get('Ambitos', [DataInfoController::class, 'listFields']);
+            Route::get('gameMujeres', [DataInfoController::class, 'getRandomWomansToPlay']);
+            Route::get('gameScore', [DataInfoController::class, 'getGameScores']);
+            Route::post('gameScore', [DataInfoController::class, 'updateGameScore']);
         });
 
         Route::group(["prefix" => 'processData'], function () {
             Route::post('EditProfile', [ProfileController::class, 'editData']);
-        });
-        Route::group(["prefix" => 'processData'], function () {
             Route::post('SendEmail', [EmailController::class, 'sendEmail']);
         });
     });
