@@ -25,26 +25,18 @@
 
                         <div class="form-group">
                             <label for="password1">Password</label>
-<<<<<<< HEAD
                             <input type="password" class="form-control" id="passwordAdd1" placeholder="ej. 123456Xx">
-=======
-                            <input type="password" class="form-control" id="passwordAdd1">
                             <small id="passwordHelpBlock" class="form-text text-muted">
                                 La contraseña tiene que tener 8 caracteres de longitud, numeros y letras minusculas y mayusculas.
                             </small>
->>>>>>> 179a257885637854e2007f511590c3585cd3e878
                         </div>
 
                         <div class="form-group">
                             <label for="password2">Password</label>
-<<<<<<< HEAD
                             <input type="password" class="form-control" id="passwordAdd2" placeholder="ej. 123456Xx">
-=======
-                            <input type="password" class="form-control" id="passwordAdd2">
                             <small id="passwordHelpBlock" class="form-text text-muted">
                                 La contraseña tiene que tener 8 caracteres de longitud, numeros y letras minusculas y mayusculas.
                             </small>
->>>>>>> 179a257885637854e2007f511590c3585cd3e878
                         </div>
                     </form>
                 </div>
