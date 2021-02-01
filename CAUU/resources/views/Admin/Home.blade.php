@@ -8,7 +8,9 @@
     <!-- Indice del video para administradores OCULTO?? -->
 
     <!-- ScrollSpy con la transcripción del video -->
-
+    <video width="320" height="240">
+        <source src="./public/media/tutorial.mp4" type="video/mp4">
+    </video>
     <div id="adminExplanationScrollSpy" class="container">
         <div class="row">
         <nav id="adminTutorial" class="navbar navbar-light bg-light col-sm-3">
@@ -41,50 +43,50 @@
             <p class="text-justify">&nbsp;&nbsp;&nbsp;&nbsp;En esta pantalla gestionaremos los datos de las mujeres de la base de datos.</p>
                 <h5 id="item-1-1">&nbsp;&nbsp;Añadir</h5>
                 <article>
-                    <p class="text-justify">&nbsp;&nbsp;&nbsp;&nbsp;Cuando hagamos click en el botón 'añadir' que 
-                    encontraremos al comienzo de la lista, se nos abrirá una ventana emergente 
-                    con un formulario para poder completar los datos de la mujer a añadir. Cada 
-                    vez que queramos añadir una nueva mujer a la página, tendremos que hacerlo 
+                    <p class="text-justify">&nbsp;&nbsp;&nbsp;&nbsp;Cuando hagamos click en el botón 'añadir' que
+                    encontraremos al comienzo de la lista, se nos abrirá una ventana emergente
+                    con un formulario para poder completar los datos de la mujer a añadir. Cada
+                    vez que queramos añadir una nueva mujer a la página, tendremos que hacerlo
                     una a cada vez.</p>
-                    <p class="text-justify">&nbsp;&nbsp;&nbsp;&nbsp;Podemos contemplar que el formulario se divide en 
+                    <p class="text-justify">&nbsp;&nbsp;&nbsp;&nbsp;Podemos contemplar que el formulario se divide en
                     dos secciones: "Datos personales" y "Datos del juego":</p>
                     <p class="text-justify"><b>&nbsp;&nbsp;Datos personales:</b></p>
-                        <p class="text-justify">&nbsp;&nbsp;&nbsp;&nbsp;Estos serán los datos que los jugadores podrán 
-                        ver en la sección "Colección" de nuestro juego una vez que las hayan 
+                        <p class="text-justify">&nbsp;&nbsp;&nbsp;&nbsp;Estos serán los datos que los jugadores podrán
+                        ver en la sección "Colección" de nuestro juego una vez que las hayan
                         desbloqueado.</p>
                     <p class="text-justify"><b>&nbsp;&nbsp;Datos del juego:</b></p>
-                        <p class="text-justify">&nbsp;&nbsp;&nbsp;&nbsp;Estos serán los datos con la que los jugadores 
+                        <p class="text-justify">&nbsp;&nbsp;&nbsp;&nbsp;Estos serán los datos con la que los jugadores
                         jugarán. Son datos pequeños, sencillos de aprender.</p>
-                    <p class="text-justify">&nbsp;&nbsp;&nbsp;&nbsp;Una vez pulsemos el botón de guardar esperaremos a 
+                    <p class="text-justify">&nbsp;&nbsp;&nbsp;&nbsp;Una vez pulsemos el botón de guardar esperaremos a
                     que la nueva mujer se haya guardado en nuestra base de datos y... ¡LISTO!
                     ¡Hemos añadido una mujer nueva a nuestro juego!</p>
                 </article>
                 <h5 id="item-1-2">&nbsp;&nbsp;Editar</h5>
                     <article>
-                        <p class="text-justify">&nbsp;&nbsp;&nbsp;&nbsp;Cuando hagamos click en el botón 'editar' (que 
-                        encontraremos en cada una de las mujeres de la lista) se nos abrirá una 
-                        ventana emergente similar a la de añadir mujer para poder corregir o cambiar 
-                        los datos de la mujer a editar. Cada vez que queramos editar una mujer de la 
+                        <p class="text-justify">&nbsp;&nbsp;&nbsp;&nbsp;Cuando hagamos click en el botón 'editar' (que
+                        encontraremos en cada una de las mujeres de la lista) se nos abrirá una
+                        ventana emergente similar a la de añadir mujer para poder corregir o cambiar
+                        los datos de la mujer a editar. Cada vez que queramos editar una mujer de la
                         página, tendremos que hacerlo una a cada vez.</p>
-                        <p class="text-justify">&nbsp;&nbsp;&nbsp;&nbsp;Podemos contemplar que el formulario se divide en 
-                        dos secciones: "Datos personales" y "Datos del juego", tal y como el de añadir 
+                        <p class="text-justify">&nbsp;&nbsp;&nbsp;&nbsp;Podemos contemplar que el formulario se divide en
+                        dos secciones: "Datos personales" y "Datos del juego", tal y como el de añadir
                         mujer:</p>
                         <p class="text-justify"><b>&nbsp;&nbsp;Datos personales:</b></p>
-                            <p class="text-justify">&nbsp;&nbsp;&nbsp;&nbsp;Estos serán los datos que los jugadores podrán 
-                            ver en la sección "Colección" de nuestro juego una vez que las hayan 
+                            <p class="text-justify">&nbsp;&nbsp;&nbsp;&nbsp;Estos serán los datos que los jugadores podrán
+                            ver en la sección "Colección" de nuestro juego una vez que las hayan
                             desbloqueado.</p>
                         <p class="text-justify"><b>&nbsp;&nbsp;Datos del juego:</b></p>
-                            <p class="text-justify">&nbsp;&nbsp;&nbsp;&nbsp;Estos serán los datos con la que los jugadores 
+                            <p class="text-justify">&nbsp;&nbsp;&nbsp;&nbsp;Estos serán los datos con la que los jugadores
                             jugarán. Son datos pequeños, sencillos de aprender.</p>
-                        <p class="text-justify">&nbsp;&nbsp;&nbsp;&nbsp;Una vez pulsemos el botón de guardar esperaremos a 
+                        <p class="text-justify">&nbsp;&nbsp;&nbsp;&nbsp;Una vez pulsemos el botón de guardar esperaremos a
                         que la mujer se haya editado en nuestra base de datos y... ¡LISTO!
                         ¡Hemos editado una mujer de nuestro juego!</p>
                     </article>
                 <h5 id="item-1-3">&nbsp;&nbsp;Eliminar</h5>
                     <article>
-                        <p class="text-justify">&nbsp;&nbsp;&nbsp;&nbsp;Cuando hagamos click en el botón 'borrar' (que 
-                        encontraremos en cada una de las mujeres de la lista) se nos abrirá una 
-                        ventana emergente de confirmación de eliminación de la mujer. Si aceptamos 
+                        <p class="text-justify">&nbsp;&nbsp;&nbsp;&nbsp;Cuando hagamos click en el botón 'borrar' (que
+                        encontraremos en cada una de las mujeres de la lista) se nos abrirá una
+                        ventana emergente de confirmación de eliminación de la mujer. Si aceptamos
                         la mujer será eliminada totalmente de la base de datos y será irreversible.</p>
                     </article>
             <hr>
@@ -92,66 +94,66 @@
             <p class="text-justify">&nbsp;&nbsp;&nbsp;&nbsp;En esta pantalla gestionaremos los ámbitos de estudio de la base de datos.</p>
             <h5 id="item-2-1">&nbsp;&nbsp;Añadir</h5>
                 <article>
-                    <p class="text-justify">&nbsp;&nbsp;&nbsp;&nbsp;Cuando hagamos click en el botón 'añadir' que 
-                    encontraremos al comienzo de la lista se nos abrirá una ventana emergente 
-                    con un formulario para poder añadir un ámbito de estudio nuevo. Cada vez que queramos 
+                    <p class="text-justify">&nbsp;&nbsp;&nbsp;&nbsp;Cuando hagamos click en el botón 'añadir' que
+                    encontraremos al comienzo de la lista se nos abrirá una ventana emergente
+                    con un formulario para poder añadir un ámbito de estudio nuevo. Cada vez que queramos
                     añadir un ámbito nuevo a la página, tendremos que hacerlo una a cada vez.</p>
                     <p class="text-justify">&nbsp;&nbsp;&nbsp;&nbsp;Con añadir el nombre del ámbito nos es suficiente.</p>
-                    <p class="text-justify">&nbsp;&nbsp;&nbsp;&nbsp;Una vez pulsemos el botón de guardar esperaremos a 
+                    <p class="text-justify">&nbsp;&nbsp;&nbsp;&nbsp;Una vez pulsemos el botón de guardar esperaremos a
                     que el nuevo ámbito se haya guardado en nuestra base de datos y... ¡LISTO!
                     ¡Hemos añadido un ámbito nuevo a nuestro juego!</p>
                 </article>
                 <h5 id="item-2-2">&nbsp;&nbsp;Editar</h5>
                     <article>
-                        <p class="text-justify">&nbsp;&nbsp;&nbsp;&nbsp;Cuando hagamos click en el botón 'editar' (que 
-                        encontraremos en cada uno de los ámbitos de la lista) se nos abrirá una 
-                        ventana emergente similar a la de añadir ámbito para poder corregir o cambiar 
-                        el nombre de éste. Cada vez que queramos editar un ámbito de la 
+                        <p class="text-justify">&nbsp;&nbsp;&nbsp;&nbsp;Cuando hagamos click en el botón 'editar' (que
+                        encontraremos en cada uno de los ámbitos de la lista) se nos abrirá una
+                        ventana emergente similar a la de añadir ámbito para poder corregir o cambiar
+                        el nombre de éste. Cada vez que queramos editar un ámbito de la
                         página, tendremos que hacerlo una a cada vez.</p>
-                        <p class="text-justify">&nbsp;&nbsp;&nbsp;&nbsp;Una vez pulsemos el botón de guardar esperaremos a 
+                        <p class="text-justify">&nbsp;&nbsp;&nbsp;&nbsp;Una vez pulsemos el botón de guardar esperaremos a
                         que el ámbito se haya editado en nuestra base de datos y... ¡LISTO!
                         ¡Hemos editado un ámbito de nuestro juego!</p>
                     </article>
                 <h5 id="item-2-3">&nbsp;&nbsp;Eliminar</h5>
                     <article>
-                        <p class="text-justify">&nbsp;&nbsp;&nbsp;&nbsp;Cuando hagamos click en el botón 'borrar' (que 
-                        encontraremos en cada uno de los ámbitos de la lista) se nos abrirá una 
-                        ventana emergente de confirmación de eliminación del ámbito. Si aceptamos 
+                        <p class="text-justify">&nbsp;&nbsp;&nbsp;&nbsp;Cuando hagamos click en el botón 'borrar' (que
+                        encontraremos en cada uno de los ámbitos de la lista) se nos abrirá una
+                        ventana emergente de confirmación de eliminación del ámbito. Si aceptamos
                         el ámbito será eliminado totalmente de la base de datos y será irreversible.</p>
                     </article>
             <hr>
             <h3 id="item-3">Usuarios</h3>
-            <p class="text-justify">&nbsp;&nbsp;&nbsp;&nbsp;En esta pantalla gestionaremos los usuarios de la base de datos. Tanto usuarios 
+            <p class="text-justify">&nbsp;&nbsp;&nbsp;&nbsp;En esta pantalla gestionaremos los usuarios de la base de datos. Tanto usuarios
             como administradores</p>
                 <h5 id="item-3-1">&nbsp;&nbsp;Añadir</h5>
                     <article>
-                        <p class="text-justify">&nbsp;&nbsp;&nbsp;&nbsp;Cuando hagamos click en el botón 'añadir' que 
-                        encontraremos al comienzo de la lista se nos abrirá una ventana emergente 
-                        con un formulario para poder completar los datos del nuevo administrador a 
-                        añadir. Cada vez que queramos añadir un nuevo administrador a la página, 
+                        <p class="text-justify">&nbsp;&nbsp;&nbsp;&nbsp;Cuando hagamos click en el botón 'añadir' que
+                        encontraremos al comienzo de la lista se nos abrirá una ventana emergente
+                        con un formulario para poder completar los datos del nuevo administrador a
+                        añadir. Cada vez que queramos añadir un nuevo administrador a la página,
                         tendremos que hacerlo uno a cada vez.</p>
                         <p class="text-justify">&nbsp;&nbsp;&nbsp;&nbsp;Estos serán los datos que el nuevo administrador
                         utilizará para gestionar nuestro juego.</p>
-                        <p class="text-justify">&nbsp;&nbsp;&nbsp;&nbsp;Una vez pulsemos el botón de guardar esperaremos a 
+                        <p class="text-justify">&nbsp;&nbsp;&nbsp;&nbsp;Una vez pulsemos el botón de guardar esperaremos a
                         que el nuevo administrador se haya guardado en nuestra base de datos y... ¡LISTO!
                         ¡Hemos añadido un nuevo administrador a nuestro juego!</p>
                     </article>
                 <h5 id="item-3-2">&nbsp;&nbsp;Editar</h5>
                     <article>
-                        <p class="text-justify">&nbsp;&nbsp;&nbsp;&nbsp;Cuando hagamos click en el botón 'editar' (que 
-                        encontraremos en cada uno de los administradores la lista) se nos abrirá una 
-                        ventana emergente similar a la de añadir administrador pero solo con la contraseña 
-                        para poder cambiarla los datos del administrador a editar. Cada vez que queramos 
+                        <p class="text-justify">&nbsp;&nbsp;&nbsp;&nbsp;Cuando hagamos click en el botón 'editar' (que
+                        encontraremos en cada uno de los administradores la lista) se nos abrirá una
+                        ventana emergente similar a la de añadir administrador pero solo con la contraseña
+                        para poder cambiarla los datos del administrador a editar. Cada vez que queramos
                         editar un administrador de la página, tendremos que hacerlo una a cada vez.</p>
-                        <p class="text-justify">&nbsp;&nbsp;&nbsp;&nbsp;Una vez pulsemos el botón de guardar esperaremos a 
+                        <p class="text-justify">&nbsp;&nbsp;&nbsp;&nbsp;Una vez pulsemos el botón de guardar esperaremos a
                         que el administrador se haya editado en nuestra base de datos y... ¡LISTO!
                         ¡Hemos editado un administrador de nuestra página!</p>
                     </article>
                 <h5 id="item-3-3">&nbsp;&nbsp;Eliminar</h5>
                     <article>
-                        <p class="text-justify">&nbsp;&nbsp;&nbsp;&nbsp;Cuando hagamos click en el botón 'borrar' (que 
-                        encontraremos en cada uno de los administradores de la lista) se nos abrirá una 
-                        ventana emergente de confirmación de eliminación del administrador. Si aceptamos 
+                        <p class="text-justify">&nbsp;&nbsp;&nbsp;&nbsp;Cuando hagamos click en el botón 'borrar' (que
+                        encontraremos en cada uno de los administradores de la lista) se nos abrirá una
+                        ventana emergente de confirmación de eliminación del administrador. Si aceptamos
                         el administrador será eliminado totalmente de la base de datos y será irreversible.</p>
                     </article>
             <hr>
