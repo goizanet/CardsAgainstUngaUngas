@@ -30,11 +30,14 @@ Route::group(['prefix'=>'auth'], function () {
         Route::group(["prefix" => 'data'], function () {
             Route::get('Coleccion', [DataInfoController::class, 'getCollection']);
             Route::get('Coleccion/mujer', [DataInfoController::class, 'getMujerUnlockedDatos']);
+            Route::get('imprimirJuego', [DataInfoController::class, 'imprimirMujeres']);
+
 
             //* Juego URLs
             Route::get('Ambitos', [DataInfoController::class, 'listFields']);
             Route::get('gameMujeres', [DataInfoController::class, 'getRandomWomansToPlay']);
-
+            Route::get('gameScore', [DataInfoController::class, 'getGameScores']);
+            Route::post('gameScore', [DataInfoController::class, 'updateGameScore']);
         });
 
         Route::group(["prefix" => 'processData'], function () {

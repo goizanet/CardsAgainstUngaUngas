@@ -14,7 +14,7 @@ class DatabaseSeeder extends Seeder
              RolesSeeder::class,
              AmbitoContinenteSeeder::class,
              MujeresSeeder::class,
-             MujerDatosSeeder::class,
+//             MujerDatosSeeder::class,
              UserSeeder::class,
          ]);
     }

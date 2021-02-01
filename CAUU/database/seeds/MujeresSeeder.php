@@ -25,6 +25,7 @@ class MujeresSeeder extends Seeder
             'continente_id' => 4,
             'fecha_nacimiento' => Carbon::parse('21-10-1952'),
             'fecha_muerte' => null,
+<<<<<<< HEAD
         ]);
 //        DB::table('datos')->insert([
 //            'mujer_id' => 1,
@@ -40,6 +41,23 @@ class MujeresSeeder extends Seeder
 //            'mujer_id' => 1,
 //            'dato' => 'Especialista en el mundo árabe',
 //        ]);
+=======
+        ]);
+        DB::table('datos')->insert([
+            'mujer_id' => 1,
+            'dato' => 'Tiene siete libros',
+        ]);
+
+        DB::table('datos')->insert([
+            'mujer_id' => 1,
+            'dato' => 'Profesora en la universidad de Columbia',
+        ]);
+
+        DB::table('datos')->insert([
+            'mujer_id' => 1,
+            'dato' => 'Especialista en el mundo árabe',
+        ]);
+>>>>>>> a5b90e00e0f0a64531aa0a43ff87afd9aa21ac73
         ////////////////////////////////////////////////////////////
         DB::table('mujeres')->insert([
             'nombre' => 'Ruth',
@@ -52,6 +70,7 @@ class MujeresSeeder extends Seeder
             'continente_id' => 4,
             'fecha_nacimiento' => Carbon::parse('05-6-1887'),
             'fecha_muerte' => Carbon::parse('17-9-1948'),
+<<<<<<< HEAD
         ]);
 //        DB::table('datos')->insert([
 //            'mujer_id' => 2,
@@ -67,6 +86,23 @@ class MujeresSeeder extends Seeder
 //            'mujer_id' => 2,
 //            'dato' => 'Fue miembro de la Academia Estadounidense de las Artes y las Ciencias',
 //        ]);
+=======
+        ]);
+        DB::table('datos')->insert([
+            'mujer_id' => 2,
+            'dato' => 'Ayudó en la lucha contra el racismo',
+        ]);
+
+        DB::table('datos')->insert([
+            'mujer_id' => 2,
+            'dato' => 'Fue elegida la primera mujer presidente de la Asociación Antropológica Americana',
+        ]);
+
+        DB::table('datos')->insert([
+            'mujer_id' => 2,
+            'dato' => 'Fue miembro de la Academia Estadounidense de las Artes y las Ciencias',
+        ]);
+>>>>>>> a5b90e00e0f0a64531aa0a43ff87afd9aa21ac73
         ////////////////////////////////////////////////////////////
         DB::table('mujeres')->insert([
             'nombre' => 'Janice',
@@ -79,6 +115,7 @@ class MujeresSeeder extends Seeder
             'continente_id' => 4,
             'fecha_nacimiento' => Carbon::parse('11-7-1951'),
             'fecha_muerte' => null,
+<<<<<<< HEAD
         ]);
 //        DB::table('datos')->insert([
 //            'mujer_id' => 3,
@@ -94,6 +131,23 @@ class MujeresSeeder extends Seeder
 //            'mujer_id' => 3,
 //            'dato' => 'Fue seleccionada para la Royal Society of Canada',
 //        ]);
+=======
+        ]);
+        DB::table('datos')->insert([
+            'mujer_id' => 3,
+            'dato' => 'Es profesora de Antropología en la Universidad de Toront',
+        ]);
+
+        DB::table('datos')->insert([
+            'mujer_id' => 3,
+            'dato' => 'Se especializa en antropología médica, religión, cuestiones de género y colonialismo en Sudán y Oriente Medio.',
+        ]);
+
+        DB::table('datos')->insert([
+            'mujer_id' => 3,
+            'dato' => 'Fue seleccionada para la Royal Society of Canada',
+        ]);
+>>>>>>> a5b90e00e0f0a64531aa0a43ff87afd9aa21ac73
         ////////////////////////////////////////////////////////////
         DB::table('mujeres')->insert([
             'nombre' => 'Matilda',
@@ -106,6 +160,23 @@ class MujeresSeeder extends Seeder
             'continente_id' => 4,
             'fecha_nacimiento' => Carbon::parse('12-5-1849'),
             'fecha_muerte' => Carbon::parse('24-6-1915'),
+<<<<<<< HEAD
+=======
+        ]);
+        DB::table('datos')->insert([
+            'mujer_id' => 4,
+            'dato' => 'Junto a su marido, formaron el primer equipo de marido y mujer en antropología.',
+        ]);
+
+        DB::table('datos')->insert([
+            'mujer_id' => 4,
+            'dato' => 'A menudo sus investigaciones se centraban en las mujeres y en la vida familiar.',
+        ]);
+
+        DB::table('datos')->insert([
+            'mujer_id' => 4,
+            'dato' => 'También escribía bajo el nombre de Tilly E. Stevenson',
+>>>>>>> a5b90e00e0f0a64531aa0a43ff87afd9aa21ac73
         ]);
 //        DB::table('datos')->insert([
 //            'mujer_id' => 4,
@@ -134,6 +205,18 @@ class MujeresSeeder extends Seeder
             'continente_id' => 4,
             'fecha_nacimiento' => Carbon::parse('15-3-1838'),
             'fecha_muerte' => Carbon::parse('6-4-1923'),
+<<<<<<< HEAD
+=======
+        ]);
+        DB::table('datos')->insert([
+            'mujer_id' => 5,
+            'dato' => 'Fue asistente en el áre de Etnología del Museo Peabody',
+        ]);
+
+        DB::table('datos')->insert([
+            'mujer_id' => 5,
+            'dato' => 'Recibió la membresía Thaw, la cual fue creada especifícamente para ella',
+>>>>>>> a5b90e00e0f0a64531aa0a43ff87afd9aa21ac73
         ]);
 //        DB::table('datos')->insert([
 //            'mujer_id' => 5,
@@ -150,6 +233,14 @@ class MujeresSeeder extends Seeder
 //            'dato' => 'Fue la primera presidente mujer de la Sociedad Norteamericana de Folklore',
 //        ]);
 
+<<<<<<< HEAD
+=======
+        DB::table('datos')->insert([
+            'mujer_id' => 5,
+            'dato' => 'Fue la primera presidente mujer de la Sociedad Norteamericana de Folklore',
+        ]);
+
+>>>>>>> a5b90e00e0f0a64531aa0a43ff87afd9aa21ac73
         ////////////////////////////////////////////////////////////
         DB::table('mujeres')->insert([
             'nombre' => 'Maria',
@@ -162,6 +253,23 @@ class MujeresSeeder extends Seeder
             'continente_id' => 1,
             'fecha_nacimiento' => Carbon::parse('25-10-1884'),
             'fecha_muerte' => Carbon::parse('27-5-1921'),
+<<<<<<< HEAD
+=======
+        ]);
+        DB::table('datos')->insert([
+            'mujer_id' => 6,
+            'dato' => 'Su investigación sobrevive en tres libros',
+        ]);
+
+        DB::table('datos')->insert([
+            'mujer_id' => 6,
+            'dato' => 'Es conocida por su etnografía del chamanismo siberiano',
+        ]);
+
+        DB::table('datos')->insert([
+            'mujer_id' => 6,
+            'dato' => 'También escribía poemas e incluso fueron publicados en la revista "Odrodzenie"',
+>>>>>>> a5b90e00e0f0a64531aa0a43ff87afd9aa21ac73
         ]);
 //        DB::table('datos')->insert([
 //            'mujer_id' => 6,
@@ -190,6 +298,18 @@ class MujeresSeeder extends Seeder
             'continente_id' => 4,
             'fecha_nacimiento' => Carbon::parse('21-5-1867'),
             'fecha_muerte' => Carbon::parse('5-6-1957'),
+<<<<<<< HEAD
+=======
+        ]);
+        DB::table('datos')->insert([
+            'mujer_id' => 7,
+            'dato' => 'Puede ser descrita como una etnomusicóloga',
+        ]);
+
+        DB::table('datos')->insert([
+            'mujer_id' => 7,
+            'dato' => 'Es conocida por sus estudios de música y cultura nativa americana',
+>>>>>>> a5b90e00e0f0a64531aa0a43ff87afd9aa21ac73
         ]);
 //        DB::table('datos')->insert([
 //            'mujer_id' => 7,
@@ -206,6 +326,14 @@ class MujeresSeeder extends Seeder
 //            'dato' => 'Ayudó a preservar la cultura nativo americana en un momento en que la política del gobierno era alentar a los nativos americanos a adoptar las costumbres occidentales.',
 //        ]);
 
+<<<<<<< HEAD
+=======
+        DB::table('datos')->insert([
+            'mujer_id' => 7,
+            'dato' => 'Ayudó a preservar la cultura nativo americana en un momento en que la política del gobierno era alentar a los nativos americanos a adoptar las costumbres occidentales.',
+        ]);
+
+>>>>>>> a5b90e00e0f0a64531aa0a43ff87afd9aa21ac73
         ////////////////////////////////////////////////////////////
         DB::table('mujeres')->insert([
             'nombre' => 'Leela',
@@ -218,6 +346,23 @@ class MujeresSeeder extends Seeder
             'continente_id' => 2,
             'fecha_nacimiento' => Carbon::parse('27-3-1923'),
             'fecha_muerte' => Carbon::parse('20-5-2012'),
+<<<<<<< HEAD
+=======
+        ]);
+        DB::table('datos')->insert([
+            'mujer_id' => 8,
+            'dato' => 'Fue responsable de introducir las preocupaciones de los estudios de la mujer en la sociología convencional',
+        ]);
+
+        DB::table('datos')->insert([
+            'mujer_id' => 8,
+            'dato' => 'En 2007 recibió el premio Lifetime Achievement Award de la Indian Sociological Society',
+        ]);
+
+        DB::table('datos')->insert([
+            'mujer_id' => 8,
+            'dato' => 'En su libro examina el género, el parentesco y la cultura obteniendo una variedad de materiales no convencionales, como cuentos populares, canciones populares, proverbios, leyendas y mitos para construir un perfil etnográfico del pensamiento feminista',
+>>>>>>> a5b90e00e0f0a64531aa0a43ff87afd9aa21ac73
         ]);
 //        DB::table('datos')->insert([
 //            'mujer_id' => 8,
@@ -246,6 +391,18 @@ class MujeresSeeder extends Seeder
             'continente_id' => 4,
             'fecha_nacimiento' => Carbon::parse('0-0-1952'),
             'fecha_muerte' => null,
+<<<<<<< HEAD
+=======
+        ]);
+        DB::table('datos')->insert([
+            'mujer_id' => 9,
+            'dato' => 'Es especializada en el campo de la teoría crítica de la raza',
+        ]);
+
+        DB::table('datos')->insert([
+            'mujer_id' => 9,
+            'dato' => 'Se dedica a la investigación sobre temáticas de raza y género',
+>>>>>>> a5b90e00e0f0a64531aa0a43ff87afd9aa21ac73
         ]);
 //        DB::table('datos')->insert([
 //            'mujer_id' => 9,
@@ -262,6 +419,14 @@ class MujeresSeeder extends Seeder
 //            'dato' => 'Es una de los fundadores del campo de la teoría crítica de la raza.',
 //        ]);
 
+<<<<<<< HEAD
+=======
+        DB::table('datos')->insert([
+            'mujer_id' => 9,
+            'dato' => 'Es una de los fundadores del campo de la teoría crítica de la raza.',
+        ]);
+
+>>>>>>> a5b90e00e0f0a64531aa0a43ff87afd9aa21ac73
         ////////////////////////////////////////////////////////////
         DB::table('mujeres')->insert([
             'nombre' => 'Edith',
@@ -274,6 +439,13 @@ class MujeresSeeder extends Seeder
             'continente_id' => 4,
             'fecha_nacimiento' => Carbon::parse('26-9-1876'),
             'fecha_muerte' => Carbon::parse('28-7-1957'),
+<<<<<<< HEAD
+=======
+        ]);
+        DB::table('datos')->insert([
+            'mujer_id' => 10,
+            'dato' => 'Fue la primera mujer decana en EE.UU.',
+>>>>>>> a5b90e00e0f0a64531aa0a43ff87afd9aa21ac73
         ]);
 //        DB::table('datos')->insert([
 //            'mujer_id' => 10,
@@ -290,7 +462,21 @@ class MujeresSeeder extends Seeder
 //            'dato' => 'Derivó un plan de estudios para estudiantes que deseaban una carrera en trabajo social.',
 //        ]);
 
+<<<<<<< HEAD
 
+=======
+        DB::table('datos')->insert([
+            'mujer_id' => 10,
+            'dato' => 'Fue reformadora de la legislación laboral infantil ',
+        ]);
+
+        DB::table('datos')->insert([
+            'mujer_id' => 10,
+            'dato' => 'Derivó un plan de estudios para estudiantes que deseaban una carrera en trabajo social.',
+        ]);
+
+
+>>>>>>> a5b90e00e0f0a64531aa0a43ff87afd9aa21ac73
         ////////////////////////////////////////////////////////////
         DB::table('mujeres')->insert([
             'nombre' => 'Irma',
@@ -303,6 +489,13 @@ class MujeresSeeder extends Seeder
             'continente_id' => 4,
             'fecha_nacimiento' => Carbon::parse('14-3-1930'),
             'fecha_muerte' => Carbon::parse('5-2-2017'),
+<<<<<<< HEAD
+=======
+        ]);
+        DB::table('datos')->insert([
+            'mujer_id' => 11,
+            'dato' => 'Se graduó como la primera de su promoción',
+>>>>>>> a5b90e00e0f0a64531aa0a43ff87afd9aa21ac73
         ]);
 //        DB::table('datos')->insert([
 //            'mujer_id' => 11,
@@ -319,6 +512,19 @@ class MujeresSeeder extends Seeder
 //            'dato' => 'Sus trabajos aún hoy resultan claves para comprender la evolución y desarrollo de la sociedad moderna.',
 //        ]);
 
+<<<<<<< HEAD
+=======
+        DB::table('datos')->insert([
+            'mujer_id' => 11,
+            'dato' => 'Escribió un libro titulado "Teoría sobre el crecimiento y desarrollo económico".',
+        ]);
+
+        DB::table('datos')->insert([
+            'mujer_id' => 11,
+            'dato' => 'Sus trabajos aún hoy resultan claves para comprender la evolución y desarrollo de la sociedad moderna.',
+        ]);
+
+>>>>>>> a5b90e00e0f0a64531aa0a43ff87afd9aa21ac73
         ////////////////////////////////////////////////////////////
         DB::table('mujeres')->insert([
             'nombre' => 'Marianne',
@@ -331,6 +537,23 @@ class MujeresSeeder extends Seeder
             'continente_id' => 1,
             'fecha_nacimiento' => Carbon::parse('0-0-1970'),
             'fecha_muerte' => null,
+<<<<<<< HEAD
+=======
+        ]);
+        DB::table('datos')->insert([
+            'mujer_id' => 12,
+            'dato' => 'Ha sido coeditora del Economic Journal y editora asociada de varias revistas científicas.',
+        ]);
+
+        DB::table('datos')->insert([
+            'mujer_id' => 12,
+            'dato' => 'Está especializada en microeconomía aplicada.',
+        ]);
+
+        DB::table('datos')->insert([
+            'mujer_id' => 12,
+            'dato' => 'Investigó sobre la economía laboral, discriminación y brechas de género',
+>>>>>>> a5b90e00e0f0a64531aa0a43ff87afd9aa21ac73
         ]);
 //        DB::table('datos')->insert([
 //            'mujer_id' => 12,
@@ -348,7 +571,11 @@ class MujeresSeeder extends Seeder
 //        ]);
     }
 }
+<<<<<<< HEAD
         ////////////////////////////////////////////////////////////
+=======
+////////////////////////////////////////////////////////////
+>>>>>>> a5b90e00e0f0a64531aa0a43ff87afd9aa21ac73
 //        DB::table('mujeres')->insert([
 //            'nombre' => '',
 //            'apellido' => '',

@@ -139,9 +139,9 @@
     </div>
 
     <div class="col-12 text-center my-2">
-        <p id="pruebaOcultar">prueba de ocultar</p>
         <button class="mt-3 btn btn-success"  data-toggle="modal" data-target="#addWomanModal">Añadir</button>
     </div>
+    <div class="row">
     @foreach($women as $woman)
         <div class="my-4 px-2 card col-12 col-sm-6 col-lg-4" id="tragetaMujer">
             <div class="card-body woman">
@@ -170,6 +170,7 @@
             </div>
         </div>
     @endforeach
+    </div>
 @endsection
 @section('custom-js')
     <script>
