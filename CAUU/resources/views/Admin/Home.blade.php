@@ -6,11 +6,11 @@
 
     <!-- Video explicatorio para el administrador -->
     <!-- Indice del video para administradores OCULTO?? -->
-
-    <!-- ScrollSpy con la transcripción del video -->
+{{--Video tutorial--}}
     <video width="320" height="240">
-        <source src="./public/media/tutorial.mp4" type="video/mp4">
+        <source src="../../assets/tutorial.mp4" type="video/mp4">
     </video>
+    <!-- ScrollSpy con la transcripción del video -->
     <div id="adminExplanationScrollSpy" class="container">
         <div class="row">
         <nav id="adminTutorial" class="navbar navbar-light bg-light col-sm-3">
